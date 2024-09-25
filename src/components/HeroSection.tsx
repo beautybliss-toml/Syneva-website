@@ -16,9 +16,9 @@ const HeroSection: React.FC = () => {
           alt="Hero Background Mobile"
           className="object-contain w-full h-full md:hidden"
         />
-        <div className="absolute grid w-full grid-cols-12 md:bottom-0 md:z-10 text-start">
-          <div className="col-span-3"></div>
-          <div className="col-span-9 md:bottom-0 md:z-10 text-start">
+        <div className="grid w-full grid-cols-12 md:absolute md:bottom-0 md:z-10 text-start">
+          <div className="col-span-12 md:col-span-3"></div>
+          <div className="col-span-12 px-5 md:col-span-9 md:bottom-0 md:z-10 text-start">
             <p className="text-[#1E2337] text-[14px] font-inter">
               Fast, secure, and scalable <br />
               DeFi solutions built on <br />

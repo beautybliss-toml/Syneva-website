@@ -1,5 +1,6 @@
 import React from "react";
 import { Chris, DoubleQuotes } from "../assets/images";
+import { IoIosArrowForward } from "react-icons/io";
 
 const Review: React.FC = () => {
   return (
@@ -9,7 +10,7 @@ const Review: React.FC = () => {
           <div className="col-span-12 md:col-span-3">
             <h2 className="text-[17px] font-semibold text-white mt-3">// 04</h2>
           </div>
-          <div className="col-span-12 md:col-span-9">
+          <div className="col-span-12 md:col-span-6">
             <h3 className="text-white md:text-[40px] text-[32px] font-bold ">
               Reviews
             </h3>
@@ -45,6 +46,9 @@ const Review: React.FC = () => {
                 </p>
               </div>
             </div>
+          </div>
+          <div>
+            <IoIosArrowForward />
           </div>
         </div>
       </div>
