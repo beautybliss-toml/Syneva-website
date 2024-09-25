@@ -67,9 +67,9 @@ const StepCard: React.FC<StepCardProps> = ({
 
 const GettingStarted: React.FC = () => {
   return (
-    <div className="bg-[#f7f9fb] md:py-16 py-6">
-      <div className="container p-5 mx-auto max-w-screen-2xl">
-        <div className="grid grid-cols-12">
+    <div className="py-6 md:py-16">
+      <div className="container max-w-screen-xl p-5 mx-auto">
+        <div className="grid items-center grid-cols-12 mb-16">
           <div className="text-[#0098ea] text-[17px] font-semibold col-span-12 md:col-span-3">
             // 06
           </div>

@@ -19,8 +19,8 @@ const SocialIcon = ({ icon }: { icon: string }) => (
 
 const Footer = () => {
   return (
-    <footer className="bg-[#f7f9fb] pb-8">
-      <div className="container px-4 mx-auto max-w-screen-2xl">
+    <footer className="bg-[#f7f9fb] py-12">
+      <div className="container max-w-screen-xl px-4 mx-auto">
         <div className="grid grid-cols-2 gap-5 py-5 md:grid-cols-4">
           {/* Logo Section */}
           <div className="grid items-center col-span-2 mb-6 md:mb-0 lg:col-span-1">

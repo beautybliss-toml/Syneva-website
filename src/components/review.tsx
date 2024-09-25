@@ -4,10 +4,10 @@ import { Chris, DoubleQuotes } from "../assets/images";
 const Review: React.FC = () => {
   return (
     <div className="bg-[#0098ea] py-16">
-      <div className="container px-5 mx-auto max-w-screen-2xl">
+      <div className="container max-w-screen-xl px-5 mx-auto">
         <div className="grid items-start grid-cols-1 md:grid-cols-12">
           <div className="col-span-12 md:col-span-3">
-            <h2 className="text-[17px] font-semibold text-white">// 04</h2>
+            <h2 className="text-[17px] font-semibold text-white mt-3">// 04</h2>
           </div>
           <div className="col-span-12 md:col-span-9">
             <h3 className="text-white md:text-[40px] text-[32px] font-bold ">

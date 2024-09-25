@@ -12,8 +12,8 @@ const Numbers: React.FC<NumbersProps> = ({
   totalOperations,
 }) => {
   return (
-    <div className="bg-[#f7f9fb] md:py-16 py-6">
-      <div className="container grid grid-cols-12 p-5 mx-auto max-w-screen-2xl">
+    <div className="py-6 md:py-16">
+      <div className="container grid max-w-screen-xl grid-cols-12 p-5 mx-auto md:items-center">
         <div className="text-[#0098ea] text-[17px] font-semibold col-span-12 md:col-span-3">
           // 02
         </div>
@@ -31,7 +31,10 @@ const Numbers: React.FC<NumbersProps> = ({
             </span>{" "}
             in numbers
           </h2>
-          <div className="grid items-center grid-cols-1 mt-10 lg:grid-cols-2">
+        </div>
+        <div className="col-span-12 md:col-span-3"></div>
+        <div className="col-span-12 pt-10 md:col-span-7">
+          <div className="grid items-center grid-cols-1 mt-10 md:mt-4 lg:grid-cols-2">
             <p className="opacity-70 text-[#1e2337] text-sm font-normal">
               Total number of locked funds
             </p>
@@ -39,7 +42,7 @@ const Numbers: React.FC<NumbersProps> = ({
               {totalLockedFunds}
             </span>
           </div>
-          <div className="grid items-center grid-cols-1 mt-10 lg:grid-cols-2">
+          <div className="grid items-center grid-cols-1 mt-10 md:mt-20 lg:grid-cols-2">
             <p className="opacity-70 text-[#1e2337] text-sm font-normal">
               Number of users and active wallets
             </p>
@@ -47,7 +50,7 @@ const Numbers: React.FC<NumbersProps> = ({
               {totalUsers}
             </span>
           </div>
-          <div className="grid items-center grid-cols-1 mt-10 lg:grid-cols-2">
+          <div className="grid items-center grid-cols-1 mt-10 md:mt-20 lg:grid-cols-2">
             <p className="opacity-70 text-[#1e2337] text-sm font-normal">
               Number of operations over the last day
             </p>

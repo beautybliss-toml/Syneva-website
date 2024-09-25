@@ -24,11 +24,12 @@ const phases: RoadmapPhase[] = [
       {
         heading: "Website and MVP",
         description:
-          "Development and launch of Synera's main website with MVP.",
+          "Development and launch of Synera's main website with minimum viable product (MVP), including core DeFi features: staking and simple decentralized exchange (DEX).",
       },
       {
         heading: "Integration with TON",
-        description: "Full integration with the TON blockchain.",
+        description:
+          "Full integration with the TON blockchain, including support for TON Wallet.",
       },
       {
         heading: "Smart Contract Audits",
@@ -37,7 +38,7 @@ const phases: RoadmapPhase[] = [
       {
         heading: "Community Building",
         description:
-          "Launch of social media communities and work with early adopters.",
+          "Launch of social media communities and start working with the first users (early adopters and ambassadors).",
       },
     ],
   },
@@ -52,11 +53,12 @@ const phases: RoadmapPhase[] = [
       {
         heading: "Website and MVP",
         description:
-          "Development and launch of Synera's main website with MVP.",
+          "Development and launch of Synera's main website with minimum viable product (MVP), including core DeFi features: staking and simple decentralized exchange (DEX).",
       },
       {
         heading: "Integration with TON",
-        description: "Full integration with the TON blockchain.",
+        description:
+          "Full integration with the TON blockchain, including support for TON Wallet.",
       },
       {
         heading: "Smart Contract Audits",
@@ -65,7 +67,7 @@ const phases: RoadmapPhase[] = [
       {
         heading: "Community Building",
         description:
-          "Launch of social media communities and work with early adopters.",
+          "Launch of social media communities and start working with the first users (early adopters and ambassadors).",
       },
     ],
   },
@@ -80,11 +82,12 @@ const phases: RoadmapPhase[] = [
       {
         heading: "Website and MVP",
         description:
-          "Development and launch of Synera's main website with MVP.",
+          "Development and launch of Synera's main website with minimum viable product (MVP), including core DeFi features: staking and simple decentralized exchange (DEX).",
       },
       {
         heading: "Integration with TON",
-        description: "Full integration with the TON blockchain.",
+        description:
+          "Full integration with the TON blockchain, including support for TON Wallet.",
       },
       {
         heading: "Smart Contract Audits",
@@ -93,7 +96,7 @@ const phases: RoadmapPhase[] = [
       {
         heading: "Community Building",
         description:
-          "Launch of social media communities and work with early adopters.",
+          "Launch of social media communities and start working with the first users (early adopters and ambassadors).",
       },
     ],
   },
@@ -108,11 +111,12 @@ const phases: RoadmapPhase[] = [
       {
         heading: "Website and MVP",
         description:
-          "Development and launch of Synera's main website with MVP.",
+          "Development and launch of Synera's main website with minimum viable product (MVP), including core DeFi features: staking and simple decentralized exchange (DEX).",
       },
       {
         heading: "Integration with TON",
-        description: "Full integration with the TON blockchain.",
+        description:
+          "Full integration with the TON blockchain, including support for TON Wallet.",
       },
       {
         heading: "Smart Contract Audits",
@@ -121,7 +125,7 @@ const phases: RoadmapPhase[] = [
       {
         heading: "Community Building",
         description:
-          "Launch of social media communities and work with early adopters.",
+          "Launch of social media communities and start working with the first users (early adopters and ambassadors).",
       },
     ],
   },
@@ -136,11 +140,12 @@ const phases: RoadmapPhase[] = [
       {
         heading: "Website and MVP",
         description:
-          "Development and launch of Synera's main website with MVP.",
+          "Development and launch of Synera's main website with minimum viable product (MVP), including core DeFi features: staking and simple decentralized exchange (DEX).",
       },
       {
         heading: "Integration with TON",
-        description: "Full integration with the TON blockchain.",
+        description:
+          "Full integration with the TON blockchain, including support for TON Wallet.",
       },
       {
         heading: "Smart Contract Audits",
@@ -149,7 +154,7 @@ const phases: RoadmapPhase[] = [
       {
         heading: "Community Building",
         description:
-          "Launch of social media communities and work with early adopters.",
+          "Launch of social media communities and start working with the first users (early adopters and ambassadors).",
       },
     ],
   },
@@ -173,7 +178,7 @@ const PhaseDisclosure: React.FC<RoadmapPhase> = ({
             </div>
             <div
               className={`col-span-3 ${
-                open ? "md:col-span-3" : "md:col-span-8"
+                open ? "md:col-span-3" : "md:col-span-7"
               }`}
             >
               <h4
@@ -182,13 +187,13 @@ const PhaseDisclosure: React.FC<RoadmapPhase> = ({
                 {quarter}
               </h4>
             </div>
-            <DisclosurePanel className="hidden col-span-12 md:col-span-5 sm:block">
+            <DisclosurePanel className="hidden col-span-12 md:col-span-4 sm:block">
               <div className="block col-span-12 my-4 sm:hidden md:col-span-2">
                 <p className="text-sm font-bold text-[#0098ea]">{title}</p>
               </div>
               <div className="text-[#1e2337]">
                 {details.map((item, index) => (
-                  <div key={index} className="mt-2 text-sm">
+                  <div key={index} className="mt-2 text-sm md:mt-5">
                     <strong className="text-[#0098ea]">{item.heading}:</strong>
                     <br />
                     {item.description}
@@ -196,20 +201,20 @@ const PhaseDisclosure: React.FC<RoadmapPhase> = ({
                 ))}
               </div>
             </DisclosurePanel>
-            <div className="flex justify-end w-full col-span-1 text-end">
+            <div className="flex justify-end w-full col-span-2 text-end">
               <ChevronDownIcon
-                className={`w-7 h-7 transition-transform text-[#0098EA] ${
+                className={`w-10 h-10 font-light transition-transform text-[#0098EA] ${
                   open ? "rotate-180" : ""
                 }`}
               />
             </div>
             <DisclosurePanel className="col-span-4 sm:hidden md:col-span-5">
-              <div className="block col-span-12 my-4 sm:hidden md:col-span-2 pb-7">
+              <div className="block col-span-12 pb-5 my-4 sm:hidden md:col-span-2">
                 <p className="text-sm font-bold text-[#0098ea]">{title}</p>
               </div>
               <div className="text-[#1e2337]">
                 {details.map((item, index) => (
-                  <div key={index} className="mt-2 text-sm">
+                  <div key={index} className="mb-5 text-sm">
                     <strong className="text-[#0098ea]">{item.heading}:</strong>
                     <br />
                     {item.description}
@@ -227,10 +232,12 @@ const PhaseDisclosure: React.FC<RoadmapPhase> = ({
 const Roadmap: React.FC = memo(() => {
   return (
     <div className="py-10 bg-white sm:py-16">
-      <div className="container px-5 mx-auto max-w-screen-2xl">
+      <div className="container max-w-screen-xl px-5 mx-auto">
         <div className="grid items-start grid-cols-1 md:mb-10 mb-7 md:grid-cols-12">
           <div className="col-span-12 md:col-span-3">
-            <h2 className="text-[17px] font-semibold text-[#0098EA]">// 05</h2>
+            <h2 className="text-[17px] font-semibold text-[#0098EA] mt-3">
+              // 05
+            </h2>
           </div>
           <div className="col-span-12 md:col-span-9">
             <h3 className="text-[#1e2337] md:text-[40px] text-[32px] font-bold">
