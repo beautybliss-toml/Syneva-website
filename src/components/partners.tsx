@@ -32,15 +32,17 @@ const partnersData = [
 ];
 
 const Partners: React.FC = () => (
-  <div className="bg-[#f7f9fb] md:py-16 py-6">
+  <div className="bg-[#f7f9fb] md:py-16 pb-10 pt-5">
     <div className="container px-5 mx-auto max-w-screen-2xl">
       <div className="grid items-start grid-cols-1 my-5 md:grid-cols-12">
         <h2 className="text-[#0098ea] text-[17px] font-semibold col-span-12 md:col-span-3">
           //03
         </h2>
         <div className="col-span-12 md:col-span-9">
-          <h3 className="text-[#1e2337] text-[40px] font-bold">Our partners</h3>
-          <div className="grid grid-cols-2 gap-10 lg:grid-cols-3">
+          <h3 className="text-[#1e2337] md:text-[40px] text-[32px] font-bold">
+            Our partners
+          </h3>
+          <div className="grid grid-cols-2 gap-4 mt-5 md:gap-10 lg:grid-cols-3">
             {partnersData.map((partner, idx) => (
               <div
                 key={idx}

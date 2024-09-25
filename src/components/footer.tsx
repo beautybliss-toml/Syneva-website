@@ -12,18 +12,18 @@ const FooterLink = ({ text, link }: { text: string; link: string }) => (
 );
 
 const SocialIcon = ({ icon }: { icon: string }) => (
-  <div className="md:w-6 md:h-6 w-9 h-9 mx-2 flex items-center justify-center">
+  <div className="flex items-center justify-center mx-2 md:w-6 md:h-6 w-9 h-9">
     <img src={icon} alt="social icon" className="w-full h-full" />
   </div>
 );
 
 const Footer = () => {
   return (
-    <footer className="bg-[#f7f9fb] py-8">
-      <div className="container mx-auto max-w-screen-2xl px-4">
-        <div className="grid md:grid-cols-4 grid-cols-2 py-5 gap-5">
+    <footer className="bg-[#f7f9fb] pb-8">
+      <div className="container px-4 mx-auto max-w-screen-2xl">
+        <div className="grid grid-cols-2 gap-5 py-5 md:grid-cols-4">
           {/* Logo Section */}
-          <div className="grid items-center mb-6 md:mb-0 lg:col-span-1 col-span-2">
+          <div className="grid items-center col-span-2 mb-6 md:mb-0 lg:col-span-1">
             <div className="flex items-center mb-3 md:mb-0">
               <img
                 className="w-[38px] h-[30px] mr-2"
@@ -38,25 +38,25 @@ const Footer = () => {
             </p>
           </div>
           {/* Navigation Links */}
-          <nav className="flex flex-col gap-3 mb-6 md:mb-0 lg:col-span-1 col-span-1">
+          <nav className="flex flex-col col-span-1 gap-3 mb-6 md:mb-0 lg:col-span-1">
             <FooterLink text="Team" link="#team" />
             <FooterLink text="Stake" link="#stake" />
             <FooterLink text="Swap" link="#swap" />
             <FooterLink text="Reward" link="#reward" />
           </nav>
-          <nav className="flex flex-col gap-3 mb-6 md:mb-0 lg:col-span-2 col-span-1">
+          <nav className="flex flex-col col-span-1 gap-3 mb-6 md:mb-0 lg:col-span-2">
             <FooterLink text="Download" link="#download" />
             <FooterLink text="Privacy Policy" link="#privacy" />
             <FooterLink text="Terms of Use" link="#terms" />
           </nav>
         </div>
-        <div className="flex justify-between md:flex-row flex-col-reverse">
+        <div className="flex flex-col-reverse justify-between md:flex-row">
           {/* Footer Bottom Text */}
           <div className="text-[#98b2bf] text-sm">
             Syneva © 2024 All Rights Reserved
           </div>
           {/* Social Media Icons */}
-          <div className="flex md:justify-end mb-4">
+          <div className="flex mb-4 md:justify-end">
             <SocialIcon icon={Linkdin} />
             <SocialIcon icon={Telegram} />
             <SocialIcon icon={Git} />

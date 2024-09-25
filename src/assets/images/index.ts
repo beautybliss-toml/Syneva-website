@@ -1,5 +1,6 @@
 export { default as Airdrop } from './Airdrop.png';
 export { default as Exclude } from './Exclude.png';
+export { default as ExcludeMobile } from './ExcludeMobile.png';
 export { default as Staking } from './Staking.png';
 export { default as Swap } from './Swap.png';
 // src/assets/images/icons/git.svg src/assets/images/icons/Linkdin.svg src/assets/images/icons/mail.svg src/assets/images/icons/telegram.svg src/assets/images/icons/twitter.svg

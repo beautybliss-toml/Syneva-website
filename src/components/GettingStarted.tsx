@@ -71,10 +71,10 @@ const GettingStarted: React.FC = () => {
       <div className="container p-5 mx-auto max-w-screen-2xl">
         <div className="grid grid-cols-12">
           <div className="text-[#0098ea] text-[17px] font-semibold col-span-12 md:col-span-3">
-            // 08
+            // 06
           </div>
           <div className="col-span-12 md:col-span-9">
-            <h2 className="text-[#1e2337] text-[40px] font-bold md:flex gap-3">
+            <h2 className="text-[#1e2337] md:text-[40px] text-[32px] font-bold md:flex gap-3">
               How to start with
               <span className="flex items-center gap-1">
                 <img
@@ -89,7 +89,7 @@ const GettingStarted: React.FC = () => {
             </h2>
           </div>
         </div>
-        <div className="grid gap-5 p-4 my-5 md:grid-cols-2">
+        <div className="grid gap-5 my-5 md:grid-cols-2">
           <StepCard
             stepNumber={1}
             title="Create or connect a TON wallet"

@@ -10,7 +10,9 @@ const Review: React.FC = () => {
             <h2 className="text-[17px] font-semibold text-white">// 04</h2>
           </div>
           <div className="col-span-12 md:col-span-9">
-            <h3 className="text-white text-[40px] font-bold ">Reviews</h3>
+            <h3 className="text-white md:text-[40px] text-[32px] font-bold ">
+              Reviews
+            </h3>
             <div className="flex flex-col items-center justify-start gap-10 mt-10">
               {/* User Image */}
               <div className="flex items-center justify-start w-full gap-5 text-white">
@@ -36,7 +38,7 @@ const Review: React.FC = () => {
                     className="w-8 h-8 md:h-16 md:w-16"
                   />
                 </div>
-                <p className="text-2xl font-light leading-[33.6px]">
+                <p className="mt-4 font-light md:mt-0 md:text-2xl">
                   I’ve used several DeFi platforms, but Synera offers the
                   smoothest and most user-friendly experience, all while
                   leveraging TON’s scalability.

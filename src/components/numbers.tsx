@@ -18,8 +18,8 @@ const Numbers: React.FC<NumbersProps> = ({
           // 02
         </div>
         <div className="col-span-12 md:col-span-9">
-          <h2 className="text-[#1e2337] text-[32px] md:text-[40px] font-bold flex gap-3 flex-wrap">
-            <span className="flex items-center gap-1">
+          <h2 className="text-[#1e2337] md:text-[40px] text-[32px] font-bold inline-flex gap-2 flex-wrap">
+            <span className="inline-flex items-center gap-1">
               <img
                 src="/logo.svg"
                 alt="Syneva logo"
@@ -28,30 +28,30 @@ const Numbers: React.FC<NumbersProps> = ({
                 className="w-[30px] md:w-[38px] h-[30px]"
               />
               Syneva
-            </span>
+            </span>{" "}
             in numbers
           </h2>
-          <div className="grid items-center grid-cols-1 my-4 lg:grid-cols-2">
+          <div className="grid items-center grid-cols-1 mt-10 lg:grid-cols-2">
             <p className="opacity-70 text-[#1e2337] text-sm font-normal">
               Total number of locked funds
             </p>
-            <span className="text-[#2d83ec] text-[48px] md:text-[64px] font-semibold">
+            <span className="bg-gradient-to-r from-[#2d83ec] to-[#1ac9ff] bg-clip-text text-transparent text-5xl md:text-[64px] font-semibold">
               {totalLockedFunds}
             </span>
           </div>
-          <div className="grid items-center grid-cols-1 my-4 lg:grid-cols-2">
+          <div className="grid items-center grid-cols-1 mt-10 lg:grid-cols-2">
             <p className="opacity-70 text-[#1e2337] text-sm font-normal">
               Number of users and active wallets
             </p>
-            <span className="text-[#2d83ec] text-[48px] md:text-[64px] font-semibold">
+            <span className="bg-gradient-to-r from-[#2d83ec] to-[#1ac9ff] bg-clip-text text-transparent text-5xl md:text-[64px] font-semibold">
               {totalUsers}
             </span>
           </div>
-          <div className="grid items-center grid-cols-1 my-4 lg:grid-cols-2">
+          <div className="grid items-center grid-cols-1 mt-10 lg:grid-cols-2">
             <p className="opacity-70 text-[#1e2337] text-sm font-normal">
               Number of operations over the last day
             </p>
-            <span className="text-[#2d83ec] text-[48px] md:text-[64px] font-semibold">
+            <span className="bg-gradient-to-r from-[#2d83ec] to-[#1ac9ff] bg-clip-text text-transparent text-5xl md:text-[64px] font-semibold">
               {totalOperations}
             </span>
           </div>
