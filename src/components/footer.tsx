@@ -1,4 +1,3 @@
-import React from "react";
 import { Git, Linkdin, Mail, Telegram, Twitter } from "../assets/images";
 import { Link } from "react-router-dom";
 
