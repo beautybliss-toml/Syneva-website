@@ -14,7 +14,7 @@ const Numbers: React.FC<NumbersProps> = ({
   return (
     <div className="py-6 md:py-16">
       <div className="container grid max-w-screen-xl grid-cols-12 p-5 mx-auto md:items-center">
-        <div className="text-[#0098ea] text-[17px] font-semibold col-span-12 md:col-span-3">
+        <div className="text-[#0098ea] text-[17px] font-semibold col-span-12 md:col-span-3 mb-5 md:mb-0">
           // 02
         </div>
         <div className="col-span-12 md:col-span-9">
@@ -33,7 +33,7 @@ const Numbers: React.FC<NumbersProps> = ({
           </h2>
         </div>
         <div className="col-span-12 md:col-span-3"></div>
-        <div className="col-span-12 pt-10 md:col-span-7">
+        <div className="col-span-12 md:pt-10 md:col-span-7">
           <div className="grid items-center grid-cols-1 mt-10 md:mt-4 lg:grid-cols-2">
             <p className="opacity-70 text-[#1e2337] text-sm font-normal">
               Total number of locked funds

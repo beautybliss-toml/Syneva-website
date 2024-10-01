@@ -182,7 +182,7 @@ const PhaseDisclosure: React.FC<RoadmapPhase> = ({
               }`}
             >
               <h4
-                className={`bg-gradient-to-r from-[#2d83ec] to-[#1ac9ff] bg-clip-text text-transparent md:text-[64px] text-5xl font-semibold leading-tight`}
+                className={`bg-gradient-to-r from-[#2d83ec] to-[#1ac9ff] bg-clip-text text-transparent md:text-[64px] text-5xl font-semibold leading-tight md:-ml-[10px]`}
               >
                 {quarter}
               </h4>
@@ -201,7 +201,7 @@ const PhaseDisclosure: React.FC<RoadmapPhase> = ({
                 ))}
               </div>
             </DisclosurePanel>
-            <div className="flex justify-end w-full col-span-2 text-end">
+            <div className="flex justify-end w-full col-span-1 sm:col-span-2 text-end">
               <ChevronDownIcon
                 className={`w-10 h-10 font-light transition-transform text-[#0098EA] ${
                   open ? "rotate-180" : ""
@@ -235,7 +235,7 @@ const Roadmap: React.FC = memo(() => {
       <div className="container max-w-screen-xl px-5 mx-auto">
         <div className="grid items-start grid-cols-1 md:mb-10 mb-7 md:grid-cols-12">
           <div className="col-span-12 md:col-span-3">
-            <h2 className="text-[17px] font-semibold text-[#0098EA] mt-3">
+            <h2 className="text-[17px] font-semibold text-[#0098EA] mt-3 mb-5 md:mb-0">
               // 05
             </h2>
           </div>

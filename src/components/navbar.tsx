@@ -5,11 +5,12 @@ import {
   Button,
 } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { Link } from "react-router-dom";
 
 const navigation = [
-  { name: "Stake", href: "#", current: false },
-  { name: "Team", href: "#", current: false },
-  { name: "Swap", href: "#", current: false },
+  { name: "Stake", href: "/stake", current: false },
+  { name: "Team", href: "/team", current: false },
+  { name: "Swap", href: "/swap", current: false },
 ];
 
 function classNames(...classes: string[]) {
@@ -36,8 +37,8 @@ export default function Navbar() {
               />
             </DisclosureButton>
           </div>
-          <div className="flex items-center justify-start flex-1 px-5 md:px-0 sm:items-center sm:justify-between">
-            <div className="flex items-center flex-shrink-0 gap-1">
+          <div className="flex items-center justify-start flex-1 px-5 xl:px-0 sm:items-center sm:justify-between">
+            <Link to="/" className="flex items-center flex-shrink-0 gap-1">
               <img
                 alt="Your Company"
                 src="/logo.svg"
@@ -46,23 +47,23 @@ export default function Navbar() {
                 className="w-auto h-7"
               />
               <h4 className="font-bold text-[32px]">syneva</h4>
-            </div>
+            </Link>
             <div className="hidden sm:ml-6 sm:block">
               <div className="flex space-x-4">
                 {navigation.map((item) => (
-                  <a
+                  <Link
                     key={item.name}
-                    href={item.href}
+                    to={item.href}
                     aria-current={item.current ? "page" : undefined}
                     className={classNames(
                       item.current
-                        ? "text-[#1E2337]"
+                        ? "text-[#0098EA]"
                         : "text-[#1E2337] hover:text-[#1E2337]",
                       "rounded-md px-3 py-2 text-sm font-medium"
                     )}
                   >
                     {item.name}
-                  </a>
+                  </Link>
                 ))}
               </div>
             </div>
@@ -96,7 +97,7 @@ export default function Navbar() {
                     aria-current={item.current ? "page" : undefined}
                     className={classNames(
                       item.current
-                        ? "bg-gray-200 text-[#1E2337]"
+                        ? "bg-gray-200 text-[#0098EA]"
                         : "text-[#1E2337] hover:bg-gray-200 hover:text-[#1E2337]",
                       "block rounded-md px-3 py-5 text-base font-medium"
                     )}

@@ -15,7 +15,7 @@ const partnersData = [
   {
     img: Ton,
     alt: "Ton",
-    className: "bg-gradient-to-r from-[#2d83ec] to-[#1ac9ff] text-white",
+    className: "bg-[#f7f9fb]",
   },
   { img: Alphanonce, alt: "Alphanonce", className: "bg-[#f7f9fb]" },
   { img: FileBlocks, alt: "FileBlocks", className: "bg-[#f7f9fb]" },
@@ -35,7 +35,7 @@ const Partners: React.FC = () => (
   <div className="pt-5 pb-10 md:py-16">
     <div className="container max-w-screen-xl px-5 mx-auto">
       <div className="grid items-start grid-cols-1 my-5 md:grid-cols-12 md:items-center">
-        <h2 className="text-[#0098ea] text-[17px] font-semibold col-span-12 md:col-span-3">
+        <h2 className="text-[#0098ea] text-[17px] font-semibold col-span-12 md:col-span-3 mb-5 md:mb-0">
           //03
         </h2>
         <div className="col-span-12 md:col-span-9">
@@ -48,12 +48,12 @@ const Partners: React.FC = () => (
           {partnersData.map((partner, idx) => (
             <div
               key={idx}
-              className={`${partner.className} rounded-2xl p-8 py-12 flex justify-center items-center`}
+              className={`${partner.className} group rounded-2xl p-5 md:p-8 md:py-12 flex justify-center items-center transition-all duration-500 ease-in-out hover:ease-linear transform hover:scale-105 hover:bg-gradient-to-r hover:from-[#2d83ec] hover:to-[#1ac9ff] hover:text-white hover:shadow-lg`}
             >
               <img
                 src={partner.img}
                 alt={partner.alt}
-                className="text-center"
+                className="text-center transition-transform duration-300 ease-in-out group-hover:filter group-hover:brightness-0 group-hover:invert filter brightness-0 saturate-0"
               />
             </div>
           ))}
