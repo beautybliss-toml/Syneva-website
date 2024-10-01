@@ -1,0 +1,33 @@
+.partners_img:hover {
+  filter: invert(1) brightness(2);
+}
+
+@keyframes moveFromCenter {
+  0% {
+    transform: translate(-65%, 0%) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-moveFromCenter {
+  animation: moveFromCenter 2s ease-out forwards;
+}
+
+@keyframes moveFromMiddle {
+  0% {
+    transform: translate(65%, 0%) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-moveFrommiddle {
+  animation: moveFromMiddle 2s ease-out forwards;
+}
