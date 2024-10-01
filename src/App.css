@@ -18,36 +18,39 @@
   mask-size: 500px 390px;
 }
 
-@keyframes moveFromCenter {
-  0% {
-    mask-position: 60% bottom;
-    opacity: 1;
+@media (min-width: 768px) {
+    
+  @keyframes moveFromCenter {
+    0% {
+      mask-position: 60% bottom;
+      opacity: 1;
+    }
+    100% {
+      mask-position: right bottom;
+      opacity: 1;
+    }
   }
-  100% {
-    mask-position: right bottom;
-    opacity: 1;
+
+  .animate-moveFromCenter {
+    animation: moveFromCenter 2s ease-out forwards;
   }
-}
 
-.animate-moveFromCenter {
-  animation: moveFromCenter 2s ease-out forwards;
-}
-
-@keyframes moveFromMiddle {
-  0% {
-    mask-position: 40% top;
-    opacity: 1;
+  @keyframes moveFromMiddle {
+    0% {
+      mask-position: 40% top;
+      opacity: 1;
+    }
+    100% {
+      mask-position: left top;
+      opacity: 1;
+    }
   }
-  100% {
-    mask-position: left top;
-    opacity: 1;
+
+  .animate-moveFrommiddle {
+    animation: moveFromMiddle 2s ease-out forwards;
   }
-}
 
-.animate-moveFrommiddle {
-  animation: moveFromMiddle 2s ease-out forwards;
 }
-
 @media (max-width: 1004px) {
   .mask-container-1 {
     -webkit-mask-size: 350px 245px; /* Adjust size for smaller screens */
