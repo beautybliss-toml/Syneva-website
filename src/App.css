@@ -20,11 +20,11 @@
 
 @keyframes moveFromCenter {
   0% {
-    transform: translate(-65%, 0%) scale(1);
+    mask-position: 60% bottom;
     opacity: 1;
   }
   100% {
-    transform: translate(0, 0) scale(1);
+    mask-position: right bottom;
     opacity: 1;
   }
 }
@@ -35,11 +35,11 @@
 
 @keyframes moveFromMiddle {
   0% {
-    transform: translate(65%, 0%) scale(1);
+    mask-position: 40% top;
     opacity: 1;
   }
   100% {
-    transform: translate(0, 0) scale(1);
+    mask-position: left top;
     opacity: 1;
   }
 }
