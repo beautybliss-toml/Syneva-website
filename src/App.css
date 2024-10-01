@@ -2,6 +2,22 @@
   filter: invert(1) brightness(2);
 }
 
+.mask-container-1 {
+  -webkit-mask-image: url("./assets/images/mask1.png");
+  mask-image: url("./assets/images/mask1.png");
+  mask-repeat: no-repeat;
+  mask-position: left top;
+  mask-size: 500px 390px;
+}
+
+.mask-container-2 {
+  -webkit-mask-image: url("./assets/images/mask2.png");
+  mask-image: url("./assets/images/mask2.png");
+  mask-repeat: no-repeat;
+  mask-position: right bottom;
+  mask-size: 500px 390px;
+}
+
 @keyframes moveFromCenter {
   0% {
     transform: translate(-65%, 0%) scale(1);
@@ -30,4 +46,30 @@
 
 .animate-moveFrommiddle {
   animation: moveFromMiddle 2s ease-out forwards;
+}
+
+@media (max-width: 1004px) {
+  .mask-container-1 {
+    -webkit-mask-size: 350px 245px; /* Adjust size for smaller screens */
+    mask-size: 350px 245px; /* Adjust size for smaller screens */
+  }
+  .mask-container-2 {
+    -webkit-mask-size: 350px 245px; /* Adjust size for smaller screens */
+    mask-size: 350px 245px; /* Adjust size for smaller screens */
+  }
+}
+
+@media (max-width: 425px) {
+  .mask-container-1 {
+    -webkit-mask-size: 350px 245px; /* Adjust size for smaller screens */
+    -webkit-mask-position: -75px top;
+    mask-position: -75px top;
+    mask-size: 350px 245px; /* Adjust size for smaller screens */
+  }
+  .mask-container-2 {
+    -webkit-mask-size: 350px 245px; /* Adjust size for smaller screens */
+    -webkit-mask-position: calc(100% + 75px) bottom;
+    mask-position: calc(100% + 75px) bottom;
+    mask-size: 350px 245px; /* Adjust size for smaller screens */
+  }
 }
