@@ -18,7 +18,7 @@
   mask-size: 500px 390px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 781px) {
     
   @keyframes moveFromCenter {
     0% {
@@ -62,7 +62,7 @@
   }
 }
 
-@media (max-width: 425px) {
+@media (max-width: 780px) {
   .mask-container-1 {
     -webkit-mask-size: 350px 245px; /* Adjust size for smaller screens */
     -webkit-mask-position: -75px top;

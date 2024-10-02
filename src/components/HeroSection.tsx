@@ -12,7 +12,7 @@ const HeroSection: React.FC = () => {
             <p className="bg-clip-text bg-gradient-to-r from-[#2d83ec] to-[#1ac9ff] text-transparent leading-none text-start text-sm md:text-[32px] font-bold xs:px-[30px] md:px-[7px]">
               Empowering the future of
             </p>
-            <p className="bg-clip-text bg-gradient-to-r from-[#2d83ec] to-[#1ac9ff] text-transparent leading-none text-center md:text-start text-[50px] lg:text-[160px] md:text-[100px] font-bold">
+            <p className="bg-clip-text bg-gradient-to-r from-[#2d83ec] to-[#1ac9ff] text-transparent leading-none text-center md:text-start text-[50px] xl:text-[160px] lg:text-[155px] md:text-[100px] font-bold">
               Decentralized
             </p>
             <p className="bg-clip-text bg-gradient-to-r from-[#2d83ec] to-[#1ac9ff] text-transparent leading-none text-center md:text-end text-[84px] lg:text-[160px] md:text-[120px] font-bold">
@@ -28,7 +28,7 @@ const HeroSection: React.FC = () => {
             <p className="text-white leading-none text-start text-sm md:text-[32px] font-bold xs:px-[30px] md:px-[7px]">
               Empowering the future of
             </p>
-            <p className="text-white leading-none text-center md:text-start text-[50px] lg:text-[160px] md:text-[100px] font-bold">
+            <p className="text-white leading-none text-center md:text-start text-[50px] xl:text-[160px] lg:text-[155px] md:text-[100px] font-bold">
               Decentralized
             </p>
             <p className="text-white leading-none text-center md:text-end text-[84px] lg:text-[160px] md:text-[120px] font-bold">
@@ -43,7 +43,7 @@ const HeroSection: React.FC = () => {
             <p className="text-white leading-none text-start text-sm md:text-[32px] font-bold xs:px-[30px] md:px-[7px]">
               Empowering the future of
             </p>
-            <p className="text-white leading-none text-center md:text-start text-[50px] lg:text-[160px] md:text-[100px] font-bold">
+            <p className="text-white leading-none text-center md:text-start text-[50px] xl:text-[160px] lg:text-[155px] md:text-[100px] font-bold">
               Decentralized
             </p>
             <p className="text-white leading-none text-center md:text-end text-[84px] lg:text-[160px] md:text-[120px] font-bold">

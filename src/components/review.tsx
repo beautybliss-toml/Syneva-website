@@ -31,15 +31,19 @@ const Review: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handleNext = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === reviews.length - 1 ? 0 : prevIndex + 1
-    );
+    if (currentIndex !== reviews.length - 1) {
+      setCurrentIndex((prevIndex) =>
+        prevIndex === reviews.length - 1 ? 0 : prevIndex + 1
+      );
+    }
   };
 
   const handlePrev = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? reviews.length - 1 : prevIndex - 1
-    );
+    if (currentIndex !== 0) {
+      setCurrentIndex((prevIndex) =>
+        prevIndex === 0 ? reviews.length - 1 : prevIndex - 1
+      );
+    }
   };
 
   return (
@@ -92,17 +96,15 @@ const Review: React.FC = () => {
           </div>
           <div className="flex items-end justify-end h-full col-span-12 gap-12 pb-10 mt-5 text-white md:mt-0 md:col-span-3">
             <IoIosArrowBack
-              className={`cursor-pointer h-7 w-7 ${
-                currentIndex === 0 ? "opacity-50" : "opacity-100"
-              }`}
+              className={`h-7 w-7 ${currentIndex === 0 ? "opacity-50" : "opacity-100 cursor-pointer"
+                }`}
               onClick={handlePrev}
             />
             <IoIosArrowForward
-              className={`cursor-pointer h-7 w-7 ${
-                currentIndex === reviews.length - 1
-                  ? "opacity-50"
-                  : "opacity-100"
-              }`}
+              className={`h-7 w-7 ${currentIndex === reviews.length - 1
+                ? "opacity-50"
+                : "opacity-100 cursor-pointer"
+                }`}
               onClick={handleNext}
             />
           </div>
