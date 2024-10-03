@@ -177,9 +177,8 @@ const PhaseDisclosure: React.FC<RoadmapPhase> = ({
               <p className="text-sm font-bold text-[#0098ea]">{title}</p>
             </div>
             <div
-              className={`col-span-3 ${
-                open ? "md:col-span-3" : "md:col-span-7"
-              }`}
+              className={`col-span-3 ${open ? "md:col-span-3" : "md:col-span-7"
+                }`}
             >
               <h4
                 className={`bg-gradient-to-r from-[#2d83ec] to-[#1ac9ff] bg-clip-text text-transparent md:text-[64px] text-5xl font-semibold leading-tight md:-ml-[10px]`}
@@ -203,12 +202,11 @@ const PhaseDisclosure: React.FC<RoadmapPhase> = ({
             </DisclosurePanel>
             <div className="flex justify-end w-full col-span-1 sm:col-span-2 text-end">
               <ChevronDownIcon
-                className={`w-10 h-10 font-light transition-transform text-[#0098EA] ${
-                  open ? "rotate-180" : ""
-                }`}
+                className={`w-10 h-10 font-light transition-all duration-500 ease-in-out text-[#0098EA] ${open ? "rotate-180" : ""
+                  }`}
               />
             </div>
-            <DisclosurePanel className="col-span-4 sm:hidden md:col-span-5">
+            <DisclosurePanel className="col-span-4 transition-all duration-1000 ease-in-out sm:hidden md:col-span-5">
               <div className="block col-span-12 pb-5 my-4 sm:hidden md:col-span-2">
                 <p className="text-sm font-bold text-[#0098ea]">{title}</p>
               </div>

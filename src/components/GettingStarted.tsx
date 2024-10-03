@@ -25,54 +25,48 @@ const StepCard: React.FC<StepCardProps> = ({
 }) => {
   return (
     <div
-      className={`group rounded-2xl grid md:grid-cols-3 overflow-hidden relative md:static ${
-        isActive
-          ? "bg-[#F7F9FB] md:bg-gradient-to-r from-[#2d83ec] to-[#1ac9ff] md:text-white border text-[#1e2337]"
-          : "bg-[#F7F9FB] border text-[#1e2337] md:opacity-50 md:hover:opacity-100"
-      } md:hover:bg-gradient-to-r md:hover:from-[#2d83ec] md:hover:to-[#1ac9ff] md:hover:text-white md:transition-all md:duration-500 md:ease-in-out hover:ease-linear md:transform md:hover:scale-105`}
+      className={`group rounded-2xl grid md:grid-cols-3 overflow-hidden relative md:static ${isActive
+        ? "bg-[#F7F9FB] md:bg-gradient-to-r from-[#2d83ec] to-[#1ac9ff] md:text-white border text-[#1e2337]"
+        : "bg-[#F7F9FB] border text-[#1e2337] md:opacity-50 md:hover:opacity-100"
+        } md:hover:bg-gradient-to-r md:hover:from-[#2d83ec] md:hover:to-[#1ac9ff] md:hover:text-white md:transition-all md:duration-500 md:ease-in-out hover:ease-linear md:transform md:hover:scale-105`}
     >
       <div className="flex flex-col justify-between md:col-span-2 p-7">
         <h2
-          className={`text-[64px] font-semibold w-10 md:w-auto bg-gradient-to-r from-[#2d83ec] to-[#1ac9ff] bg-clip-text text-transparent ${
-            isActive
-              ? "md:text-white text-[#1e2337]"
-              : "md:text-[#1e2337] md:group-hover:text-white"
-          }`}
+          className={`text-[64px] font-semibold w-10 md:w-auto bg-gradient-to-r from-[#2d83ec] to-[#1ac9ff] bg-clip-text text-transparent ${isActive
+            ? "md:text-white text-[#1e2337]"
+            : "md:text-[#1e2337] md:group-hover:text-white"
+            }`}
         >
           {stepNumber}
         </h2>
         <div>
           <h3
-            className={`md:text-xl text-base font-semibold  ${
-              isActive
-                ? ""
-                : "md:opacity-20 md:group-hover:text-white md:group-hover:opacity-100"
-            }`}
+            className={`md:text-xl text-base font-semibold  ${isActive
+              ? ""
+              : "md:opacity-20 md:group-hover:text-white md:group-hover:opacity-100"
+              }`}
           >
             {title}
           </h3>
           <p
-            className={`text-sm font-normal ${
-              isActive
-                ? "md:opacity-70"
-                : "md:opacity-20 md:group-hover:text-white md:group-hover:opacity-100"
-            }`}
+            className={`text-sm font-normal ${isActive
+              ? "md:opacity-70"
+              : "md:opacity-20 md:group-hover:text-white md:group-hover:opacity-100"
+              }`}
           >
             {description}
           </p>
         </div>
       </div>
       <div
-        className={`absolute right-0 md:static md:col-span-1 flex items-center ${
-          isActive ? "-top-2" : "top-3"
-        }`}
+        className={`absolute right-0 md:static md:col-span-1 flex items-center ${isActive ? "-top-2" : "top-3"
+          }`}
       >
         <img
-          className={`object-contain w-28 lg:w-44 md:w-full md:h-full ${
-            isActive
-              ? ""
-              : "md:opacity-50 md:mix-blend-luminosity md:group-hover:opacity-100 md:group-hover:mix-blend-normal"
-          }`}
+          className={`object-contain w-28 lg:w-44 md:w-full md:h-full ${isActive
+            ? ""
+            : "md:opacity-50 md:mix-blend-luminosity md:group-hover:opacity-100 md:group-hover:mix-blend-normal"
+            }`}
           src={imgSrc}
           alt={imgAlt}
         />
@@ -83,7 +77,7 @@ const StepCard: React.FC<StepCardProps> = ({
 
 const GettingStarted: React.FC = () => {
   return (
-    <div className="py-6 md:py-16">
+    <section className="py-6 md:py-16" id="gettingStarted">
       <div className="container max-w-screen-xl p-5 mx-auto">
         <div className="grid items-center grid-cols-12 mb-16">
           <div className="text-[#0098ea] text-[17px] font-semibold col-span-12 md:col-span-3 mb-5 md:mb-0">
@@ -151,7 +145,7 @@ const GettingStarted: React.FC = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
