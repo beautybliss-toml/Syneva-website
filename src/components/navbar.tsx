@@ -108,8 +108,8 @@ export default function Navbar() {
                 {navigation.map((item) => (
                   <DisclosureButton
                     key={item.name}
-                    as="a"
-                    href={item.href}
+                    as={Link}
+                    to={item.href}
                     aria-current={item.current ? "page" : undefined}
                     className={classNames(
                       item.current
@@ -121,9 +121,15 @@ export default function Navbar() {
                     {item.name}
                   </DisclosureButton>
                 ))}
-                <Button className="!mt-6 inline-flex sm:hidden w-full justify-center items-center px-4 py-5 border border-[#E9EEF1] rounded-full text-[#1E2337] bg-transparent hover:bg-gray-100">
-                  Download
-                </Button>
+                <DisclosureButton
+                  as={Link}
+                  to={'/download'}
+                  aria-current={location.pathname === '/download' ? "page" : undefined}
+                >
+                  <Button className="!mt-6 inline-flex sm:hidden w-full justify-center items-center px-4 py-5 border border-[#E9EEF1] rounded-full text-[#1E2337] bg-transparent hover:bg-gray-100">
+                    Download
+                  </Button>
+                </DisclosureButton>
               </div>
             </div>
           </DisclosurePanel>

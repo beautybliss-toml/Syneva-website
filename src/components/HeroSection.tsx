@@ -1,5 +1,4 @@
 import React from "react";
-import { Button } from "@headlessui/react";
 
 const HeroSection: React.FC = () => {
   return (
@@ -65,11 +64,11 @@ const HeroSection: React.FC = () => {
               <span className="text-[#0098EA]">The Open Network.</span>
             </p>
 
-            <Button className="px-[34px] mt-5 py-[17px] bg-gradient-to-r from-[#2d83ec] to-[#1ac9ff] rounded-[40px] justify-center items-center gap-2.5 inline-flex md:w-auto w-full">
+            <a href="#gettingStarted" className="px-[34px] mt-5 py-[17px] bg-gradient-to-r from-[#2d83ec] to-[#1ac9ff] rounded-[40px] justify-center items-center gap-2.5 inline-flex md:w-auto w-full">
               <span className="text-white text-[17px] font-semibold">
                 Start your journey
               </span>
-            </Button>
+            </a>
           </div>
         </div>
       </div>
@@ -83,11 +82,11 @@ const HeroSection: React.FC = () => {
             <span className="text-[#0098EA]">The Open Network.</span>
           </p>
 
-          <Button className="px-[34px] mt-5 py-[17px] bg-gradient-to-r from-[#2d83ec] to-[#1ac9ff] rounded-[40px] justify-center items-center gap-2.5 inline-flex md:w-auto w-full">
+          <a href="#gettingStarted" className="px-[34px] mt-5 py-[17px] bg-gradient-to-r from-[#2d83ec] to-[#1ac9ff] rounded-[40px] justify-center items-center gap-2.5 inline-flex md:w-auto w-full">
             <span className="text-white text-[17px] font-semibold">
               Start your journey
             </span>
-          </Button>
+          </a>
         </div>
       </div>
     </section >
