@@ -12,3 +12,4 @@ export { default as Loading } from "./Loading";
 export { default as HeaderSection } from "./HeaderSection";
 export { default as CurrencyDisplay } from "./CurrencyDisplay";
 export { default as CurrencyDropdownButton } from "./CurrencyDropdownButton";
+export { default as DownloadCard } from "./DownloadCard";
