@@ -22,7 +22,7 @@ const CurrencyDropdownButton: React.FC<CurrencyDropdownButtonProps> = ({ selecte
                         <span className="text-xl font-bold">{selectedCurrency}</span>
                         <FaAngleDown className={`transition-transform ${open ? 'transform rotate-180' : ''}`} />
                     </Menu.Button>
-                    <Menu.Items className="absolute overflow-y-scroll top-12 border border-x-[#0098EA] border-t-0 rounded-b-2xl right-0 w-full px-4 bg-[#31395B]">
+                    <Menu.Items className="absolute top-12 border border-x-[#0098EA] border-t-0 rounded-b-2xl right-0 w-full px-4 bg-[#31395B]">
                         {currencies.filter(currency => currency.name !== selectedCurrency).map((currency, index) => (
                             <Menu.Item key={index}>
                                 {({ active }) => (

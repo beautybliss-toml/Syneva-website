@@ -22,3 +22,6 @@ export { default as BusinessMan } from './stake/businessman.png';
 export { default as SwapIcon } from './swap/swapIcon.png';
 export { default as TonIcon } from './swap/tonIcon.png';
 export { default as SNV } from './swap/SNVicon.png';
+export { default as LinuxIcon } from './download/Linux.svg';    
+export { default as appBG } from './appBG.png';
+export { default as walletBG } from './walletBG.png';
