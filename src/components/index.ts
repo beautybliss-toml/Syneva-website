@@ -7,3 +7,8 @@ export { default as Review } from "./review";
 export { default as Roadmap } from "./roadmap";
 export { default as GettingStarted } from "./GettingStarted"
 export { default as Footer } from "./footer";
+export { default as TeamList } from "./TeamList";
+export { default as Loading } from "./Loading";
+export { default as HeaderSection } from "./HeaderSection";
+export { default as CurrencyDisplay } from "./CurrencyDisplay";
+export { default as CurrencyDropdownButton } from "./CurrencyDropdownButton";
