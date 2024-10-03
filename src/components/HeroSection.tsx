@@ -8,11 +8,11 @@ const HeroSection: React.FC = () => {
         <div className="relative w-full h-full">
 
           {/* Gradient Text */}
-          <div className="absolute w-full h-full px-[20px] pt-[135px] md:px-[10px] md:pt-[83px]">
+          <div className="absolute w-full h-full px-[20px] pt-[135px] md:px-[40px] md:pt-[83px]">
             <p className="bg-clip-text bg-gradient-to-r from-[#2d83ec] to-[#1ac9ff] text-transparent leading-none text-start text-sm md:text-[32px] font-bold xs:px-[30px] md:px-[7px]">
               Empowering the future of
             </p>
-            <p className="bg-clip-text bg-gradient-to-r from-[#2d83ec] to-[#1ac9ff] text-transparent leading-none text-center md:text-start text-[50px] xl:text-[160px] lg:text-[155px] md:text-[100px] font-bold">
+            <p className="bg-clip-text bg-gradient-to-r from-[#2d83ec] to-[#1ac9ff] text-transparent leading-none text-center md:text-start text-[50px] xl:text-[160px] lg:text-[145px] md:text-[100px] font-bold">
               Decentralized
             </p>
             <p className="bg-clip-text bg-gradient-to-r from-[#2d83ec] to-[#1ac9ff] text-transparent leading-none text-center md:text-end text-[84px] lg:text-[160px] md:text-[120px] font-bold">
@@ -24,11 +24,11 @@ const HeroSection: React.FC = () => {
           </div>
 
           {/* White Text Overlay */}
-          <div className="absolute w-full h-full px-[20px] pt-[135px] md:px-[10px] md:pt-[83px] bg-gradient-to-r from-[#2d83ec] to-[#1ac9ff] mask-container-1 animate-moveFrommiddle">
+          <div className="absolute w-full h-full px-[20px] pt-[135px] md:px-[40px] md:pt-[83px] bg-gradient-to-r from-[#2d83ec] to-[#1ac9ff] mask-container-1 animate-moveFrommiddle">
             <p className="text-white leading-none text-start text-sm md:text-[32px] font-bold xs:px-[30px] md:px-[7px]">
               Empowering the future of
             </p>
-            <p className="text-white leading-none text-center md:text-start text-[50px] xl:text-[160px] lg:text-[155px] md:text-[100px] font-bold">
+            <p className="text-white leading-none text-center md:text-start text-[50px] xl:text-[160px] lg:text-[145px] md:text-[100px] font-bold">
               Decentralized
             </p>
             <p className="text-white leading-none text-center md:text-end text-[84px] lg:text-[160px] md:text-[120px] font-bold">
@@ -39,11 +39,11 @@ const HeroSection: React.FC = () => {
             </p>
           </div>
 
-          <div className="absolute w-full h-full px-[20px] pt-[135px] md:px-[10px] md:pt-[83px] bg-gradient-to-r from-[#2d83ec] to-[#1ac9ff] mask-container-2 animate-moveFromCenter">
+          <div className="absolute w-full h-full px-[20px] pt-[135px] md:px-[40px] md:pt-[83px] bg-gradient-to-r from-[#2d83ec] to-[#1ac9ff] mask-container-2 animate-moveFromCenter">
             <p className="text-white leading-none text-start text-sm md:text-[32px] font-bold xs:px-[30px] md:px-[7px]">
               Empowering the future of
             </p>
-            <p className="text-white leading-none text-center md:text-start text-[50px] xl:text-[160px] lg:text-[155px] md:text-[100px] font-bold">
+            <p className="text-white leading-none text-center md:text-start text-[50px] xl:text-[160px] lg:text-[145px] md:text-[100px] font-bold">
               Decentralized
             </p>
             <p className="text-white leading-none text-center md:text-end text-[84px] lg:text-[160px] md:text-[120px] font-bold">

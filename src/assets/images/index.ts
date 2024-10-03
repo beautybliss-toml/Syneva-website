@@ -3,7 +3,6 @@ export { default as Exclude } from './Exclude.png';
 export { default as ExcludeMobile } from './ExcludeMobile.png';
 export { default as Staking } from './Staking.png';
 export { default as Swap } from './Swap.png';
-// src/assets/images/icons/git.svg src/assets/images/icons/Linkdin.svg src/assets/images/icons/mail.svg src/assets/images/icons/telegram.svg src/assets/images/icons/twitter.svg
 export { default as Git } from './Git.svg';
 export { default as Linkdin } from './Linkdin.svg';
 export { default as Mail } from './Mail.svg';
@@ -17,3 +16,9 @@ export { default as Hashkey } from './ourPartner/hashkey.svg';
 export { default as FileBlocks } from './ourPartner/fileblocks.svg';
 export { default as Chris } from './Chris.png';
 export { default as DoubleQuotes } from './DoubleQuotes.svg';
+export { default as Map } from './stake/map.png';
+export { default as MapMobile } from './stake/map_mobile.png';
+export { default as BusinessMan } from './stake/businessman.png';
+export { default as SwapIcon } from './swap/swapIcon.png';
+export { default as TonIcon } from './swap/tonIcon.png';
+export { default as SNV } from './swap/SNVicon.png';

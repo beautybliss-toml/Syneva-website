@@ -38,15 +38,15 @@ const Footer = () => {
           </div>
           {/* Navigation Links */}
           <nav className="flex flex-col col-span-1 gap-3 mb-6 md:mb-0 lg:col-span-1">
-            <FooterLink text="Team" link="#team" />
-            <FooterLink text="Stake" link="#stake" />
-            <FooterLink text="Swap" link="#swap" />
-            <FooterLink text="Reward" link="#reward" />
+            <FooterLink text="Team" link="/team" />
+            <FooterLink text="Stake" link="/stake" />
+            <FooterLink text="Swap" link="/swap" />
+            <FooterLink text="Reward" link="/reward" />
           </nav>
           <nav className="flex flex-col col-span-1 gap-3 mb-6 md:mb-0 lg:col-span-2">
-            <FooterLink text="Download" link="#download" />
-            <FooterLink text="Privacy Policy" link="#privacy" />
-            <FooterLink text="Terms of Use" link="#terms" />
+            <FooterLink text="Download" link="/download" />
+            <FooterLink text="Privacy Policy" link="/privacy" />
+            <FooterLink text="Terms of Use" link="/terms" />
           </nav>
         </div>
         <div className="flex flex-col-reverse justify-between md:flex-row">
