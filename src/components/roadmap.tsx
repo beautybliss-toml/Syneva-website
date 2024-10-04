@@ -5,160 +5,7 @@ import {
   DisclosurePanel,
 } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
-
-interface RoadmapPhase {
-  title: string;
-  quarter: string;
-  details: { heading: string; description: string }[];
-}
-
-const phases: RoadmapPhase[] = [
-  {
-    title: "Foundation Phase",
-    quarter: "Q4 2024",
-    details: [
-      {
-        heading: "Project Launch",
-        description: "Official announcement and launch of the Synera brand.",
-      },
-      {
-        heading: "Website and MVP",
-        description:
-          "Development and launch of Synera's main website with minimum viable product (MVP), including core DeFi features: staking and simple decentralized exchange (DEX).",
-      },
-      {
-        heading: "Integration with TON",
-        description:
-          "Full integration with the TON blockchain, including support for TON Wallet.",
-      },
-      {
-        heading: "Smart Contract Audits",
-        description: "Smart contract audits to ensure platform security.",
-      },
-      {
-        heading: "Community Building",
-        description:
-          "Launch of social media communities and start working with the first users (early adopters and ambassadors).",
-      },
-    ],
-  },
-  {
-    title: "Growth Phase",
-    quarter: "Q1 2025",
-    details: [
-      {
-        heading: "Project Launch",
-        description: "Official announcement and launch of the Synera brand.",
-      },
-      {
-        heading: "Website and MVP",
-        description:
-          "Development and launch of Synera's main website with minimum viable product (MVP), including core DeFi features: staking and simple decentralized exchange (DEX).",
-      },
-      {
-        heading: "Integration with TON",
-        description:
-          "Full integration with the TON blockchain, including support for TON Wallet.",
-      },
-      {
-        heading: "Smart Contract Audits",
-        description: "Smart contract audits to ensure platform security.",
-      },
-      {
-        heading: "Community Building",
-        description:
-          "Launch of social media communities and start working with the first users (early adopters and ambassadors).",
-      },
-    ],
-  },
-  {
-    title: "Ecosystem Expansion",
-    quarter: "Q2 2025",
-    details: [
-      {
-        heading: "Project Launch",
-        description: "Official announcement and launch of the Synera brand.",
-      },
-      {
-        heading: "Website and MVP",
-        description:
-          "Development and launch of Synera's main website with minimum viable product (MVP), including core DeFi features: staking and simple decentralized exchange (DEX).",
-      },
-      {
-        heading: "Integration with TON",
-        description:
-          "Full integration with the TON blockchain, including support for TON Wallet.",
-      },
-      {
-        heading: "Smart Contract Audits",
-        description: "Smart contract audits to ensure platform security.",
-      },
-      {
-        heading: "Community Building",
-        description:
-          "Launch of social media communities and start working with the first users (early adopters and ambassadors).",
-      },
-    ],
-  },
-  {
-    title: "User & Community Growth",
-    quarter: "Q3 2025",
-    details: [
-      {
-        heading: "Project Launch",
-        description: "Official announcement and launch of the Synera brand.",
-      },
-      {
-        heading: "Website and MVP",
-        description:
-          "Development and launch of Synera's main website with minimum viable product (MVP), including core DeFi features: staking and simple decentralized exchange (DEX).",
-      },
-      {
-        heading: "Integration with TON",
-        description:
-          "Full integration with the TON blockchain, including support for TON Wallet.",
-      },
-      {
-        heading: "Smart Contract Audits",
-        description: "Smart contract audits to ensure platform security.",
-      },
-      {
-        heading: "Community Building",
-        description:
-          "Launch of social media communities and start working with the first users (early adopters and ambassadors).",
-      },
-    ],
-  },
-  {
-    title: "Full DeFi Ecosystem",
-    quarter: "Q4 2025",
-    details: [
-      {
-        heading: "Project Launch",
-        description: "Official announcement and launch of the Synera brand.",
-      },
-      {
-        heading: "Website and MVP",
-        description:
-          "Development and launch of Synera's main website with minimum viable product (MVP), including core DeFi features: staking and simple decentralized exchange (DEX).",
-      },
-      {
-        heading: "Integration with TON",
-        description:
-          "Full integration with the TON blockchain, including support for TON Wallet.",
-      },
-      {
-        heading: "Smart Contract Audits",
-        description: "Smart contract audits to ensure platform security.",
-      },
-      {
-        heading: "Community Building",
-        description:
-          "Launch of social media communities and start working with the first users (early adopters and ambassadors).",
-      },
-    ],
-  },
-];
+import { RoadmapPhase, phases } from "../constants";
 
 const PhaseDisclosure: React.FC<RoadmapPhase> = ({
   title,
@@ -173,26 +20,26 @@ const PhaseDisclosure: React.FC<RoadmapPhase> = ({
           aria-expanded={open}
         >
           <div className="grid items-center w-full grid-cols-4 gap-2 sm:gap-10 sm:grid-cols-12 sm:items-start text-start">
-            <div className="hidden col-span-12 my-4 md:col-span-3 sm:block">
+            <div className="hidden col-span-12 my-4 sm:col-span-3 sm:block">
               <p className="text-sm font-bold text-[#0098ea]">{title}</p>
             </div>
             <div
-              className={`col-span-3 ${open ? "md:col-span-3" : "md:col-span-7"
+              className={`col-span-3 ${open ? "md:col-span-3" : "sm:col-span-8 xl:col-span-7"
                 }`}
             >
               <h4
-                className={`bg-gradient-to-r from-[#2d83ec] to-[#1ac9ff] bg-clip-text text-transparent md:text-[64px] text-5xl font-semibold leading-tight md:-ml-[10px]`}
+                className={`bg-gradient-to-r from-[#2d83ec] to-[#1ac9ff] bg-clip-text text-transparent md:text-[64px] text-5xl font-semibold leading-tight md:-ml-[10px] w-fit`}
               >
                 {quarter}
               </h4>
             </div>
-            <DisclosurePanel className="hidden col-span-12 md:col-span-4 sm:block">
+            <DisclosurePanel transition className="origin-top transition duration-1000 ease-linear  data-[closed]:opacity-0 hidden data-[open]:sm:col-span-5 data-[open]:xl:col-span-4 data-[open]:sm:block">
               <div className="block col-span-12 my-4 sm:hidden md:col-span-2">
                 <p className="text-sm font-bold text-[#0098ea]">{title}</p>
               </div>
               <div className="text-[#1e2337]">
                 {details.map((item, index) => (
-                  <div key={index} className="mt-2 text-sm md:mt-5">
+                  <div key={index} className="mt-2 text-sm md:mt-5 opacity-0 transform transition-all duration-500 ease-in-out delay-[index * 100] animate-fadeIn">
                     <strong className="text-[#0098ea]">{item.heading}:</strong>
                     <br />
                     {item.description}
@@ -200,19 +47,26 @@ const PhaseDisclosure: React.FC<RoadmapPhase> = ({
                 ))}
               </div>
             </DisclosurePanel>
-            <div className="flex justify-end w-full col-span-1 sm:col-span-2 text-end">
+            <div className="flex justify-end w-full col-span-1 xl:col-span-2 text-end">
               <ChevronDownIcon
-                className={`w-10 h-10 font-light transition-all duration-500 ease-in-out text-[#0098EA] ${open ? "rotate-180" : ""
-                  }`}
+                className={`w-10 h-10 transition-all duration-500 ease-in-out text-[#0098EA] transform group-data-[open]:-rotate-[60%] -rotate-180`}
               />
             </div>
-            <DisclosurePanel className="col-span-4 transition-all duration-1000 ease-in-out sm:hidden md:col-span-5">
+            <DisclosurePanel
+              transition
+              className={`transition-panel opacity-0 ${open ? 'open' : 'closed'} col-span-4 sm:hidden md:col-span-5`}
+            >
               <div className="block col-span-12 pb-5 my-4 sm:hidden md:col-span-2">
-                <p className="text-sm font-bold text-[#0098ea]">{title}</p>
+                <p className={`text-sm font-bold text-[#0098ea]`}>
+                  {title}
+                </p>
               </div>
               <div className="text-[#1e2337]">
                 {details.map((item, index) => (
-                  <div key={index} className="mb-5 text-sm">
+                  <div
+                    key={index}
+                    className={`mb-5 text-sm animate-fadeIn`}
+                  >
                     <strong className="text-[#0098ea]">{item.heading}:</strong>
                     <br />
                     {item.description}
@@ -234,7 +88,7 @@ const Roadmap: React.FC = memo(() => {
         <div className="grid items-start grid-cols-1 md:mb-10 mb-7 md:grid-cols-12">
           <div className="col-span-12 md:col-span-3">
             <h2 className="text-[17px] font-semibold text-[#0098EA] mt-3 mb-5 md:mb-0">
-              // 05
+                // 05
             </h2>
           </div>
           <div className="col-span-12 md:col-span-9">
