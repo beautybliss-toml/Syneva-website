@@ -163,3 +163,162 @@ export const staticPrivacyPolicy = {
         'Lorem ipsum dolor sit amet consectetur. Eleifend facilisis arcu senectus dictum eget convallis accumsan nulla. Erat ut aliquet urna convallis quis orci. Id risus turpis ac ornare dictum. Urna eu amet eget integer quis turpis lorem orci porttitor. In interdum vel quis sed. Vitae id at vitae vel dapibus. Ullamcorper in lacinia arcu gravida venenatis arcu sed orci.', ' Viverra nunc interdum sit porttitor sed. Id quisque tortor enim odio. Imperdiet risus gravida magnis ut amet neque integer. At quam ac magna lectus purus. Turpis nulla adipiscing purus elit sit. Commodo amet sed blandit blandit. Platea elementum ornare quis mauris. In amet elementum donec feugiat. Quam quis in eu rhoncus. Turpis egestas magna consectetur lacus. Commodo nunc sit velit pulvinar est nulla risus. Dictum sit adipiscing viverra vitae dolor vitae integer rutrum.', 'Amet aenean elementum ultrices etiam gravida. Sed bibendum risus dui tristique consectetur proin. Quis neque facilisi id purus fermentum. Et morbi tempor tincidunt urna lacinia. Id nulla sagittis varius felis hendrerit amet. Vulputate at sed lacus ut pharetra. At tellus odio tellus diam nam feugiat in.','Nisi dapibus sapien turpis sollicitudin scelerisque quis id sit. Sodales ac hac id feugiat. Eu purus non faucibus pulvinar interdum condimentum sem sapien amet. Tellus sed sit bibendum nibh maecenas vitae cursus fusce massa. Erat vitae mauris vivamus scelerisque vitae arcu purus volutpat. Aenean viverra semper vulputate turpis sem sit sed lacus. Quam sed tortor facilisis lorem facilisi vulputate. Sit mi maecenas amet at ut. Sit venenatis dui diam condimentum ac. Nisl.'
     ]
 };
+
+export interface RoadmapPhase {
+    title: string;
+    quarter: string;
+    details: {
+        heading: string;
+        description: string;
+    }[];
+    index?: number;
+    isOpen?: boolean;
+}
+
+export const phases: RoadmapPhase[] = [
+    {
+      title: "Foundation Phase",
+      quarter: "Q4 2024",
+      details: [
+        {
+          heading: "Project Launch",
+          description: "Official announcement and launch of the Synera brand.",
+        },
+        {
+          heading: "Website and MVP",
+          description:
+            "Development and launch of Synera's main website with minimum viable product (MVP), including core DeFi features: staking and simple decentralized exchange (DEX).",
+        },
+        {
+          heading: "Integration with TON",
+          description:
+            "Full integration with the TON blockchain, including support for TON Wallet.",
+        },
+        {
+          heading: "Smart Contract Audits",
+          description: "Smart contract audits to ensure platform security.",
+        },
+        {
+          heading: "Community Building",
+          description:
+            "Launch of social media communities and start working with the first users (early adopters and ambassadors).",
+        },
+      ],
+    },
+    {
+      title: "Growth Phase",
+      quarter: "Q1 2025",
+      details: [
+        {
+          heading: "Project Launch",
+          description: "Official announcement and launch of the Synera brand.",
+        },
+        {
+          heading: "Website and MVP",
+          description:
+            "Development and launch of Synera's main website with minimum viable product (MVP), including core DeFi features: staking and simple decentralized exchange (DEX).",
+        },
+        {
+          heading: "Integration with TON",
+          description:
+            "Full integration with the TON blockchain, including support for TON Wallet.",
+        },
+        {
+          heading: "Smart Contract Audits",
+          description: "Smart contract audits to ensure platform security.",
+        },
+        {
+          heading: "Community Building",
+          description:
+            "Launch of social media communities and start working with the first users (early adopters and ambassadors).",
+        },
+      ],
+    },
+    {
+      title: "Ecosystem Expansion",
+      quarter: "Q2 2025",
+      details: [
+        {
+          heading: "Project Launch",
+          description: "Official announcement and launch of the Synera brand.",
+        },
+        {
+          heading: "Website and MVP",
+          description:
+            "Development and launch of Synera's main website with minimum viable product (MVP), including core DeFi features: staking and simple decentralized exchange (DEX).",
+        },
+        {
+          heading: "Integration with TON",
+          description:
+            "Full integration with the TON blockchain, including support for TON Wallet.",
+        },
+        {
+          heading: "Smart Contract Audits",
+          description: "Smart contract audits to ensure platform security.",
+        },
+        {
+          heading: "Community Building",
+          description:
+            "Launch of social media communities and start working with the first users (early adopters and ambassadors).",
+        },
+      ],
+    },
+    {
+      title: "User & Community Growth",
+      quarter: "Q3 2025",
+      details: [
+        {
+          heading: "Project Launch",
+          description: "Official announcement and launch of the Synera brand.",
+        },
+        {
+          heading: "Website and MVP",
+          description:
+            "Development and launch of Synera's main website with minimum viable product (MVP), including core DeFi features: staking and simple decentralized exchange (DEX).",
+        },
+        {
+          heading: "Integration with TON",
+          description:
+            "Full integration with the TON blockchain, including support for TON Wallet.",
+        },
+        {
+          heading: "Smart Contract Audits",
+          description: "Smart contract audits to ensure platform security.",
+        },
+        {
+          heading: "Community Building",
+          description:
+            "Launch of social media communities and start working with the first users (early adopters and ambassadors).",
+        },
+      ],
+    },
+    {
+      title: "Full DeFi Ecosystem",
+      quarter: "Q4 2025",
+      details: [
+        {
+          heading: "Project Launch",
+          description: "Official announcement and launch of the Synera brand.",
+        },
+        {
+          heading: "Website and MVP",
+          description:
+            "Development and launch of Synera's main website with minimum viable product (MVP), including core DeFi features: staking and simple decentralized exchange (DEX).",
+        },
+        {
+          heading: "Integration with TON",
+          description:
+            "Full integration with the TON blockchain, including support for TON Wallet.",
+        },
+        {
+          heading: "Smart Contract Audits",
+          description: "Smart contract audits to ensure platform security.",
+        },
+        {
+          heading: "Community Building",
+          description:
+            "Launch of social media communities and start working with the first users (early adopters and ambassadors).",
+        },
+      ],
+    },
+  ];
