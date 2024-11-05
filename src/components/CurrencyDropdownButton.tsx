@@ -4,6 +4,7 @@ import { FaAngleDown } from "react-icons/fa6";
 interface Currency {
     name: string;
     icon: string;
+    address: string;
 }
 
 interface CurrencyDropdownButtonProps {

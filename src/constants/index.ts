@@ -10,8 +10,8 @@ import Team9 from '../assets/images/team/Rectangle9.png';
 import Team10 from '../assets/images/team/Rectangle10.png';
 import Team11 from '../assets/images/team/Rectangle11.png';
 import Team12 from '../assets/images/team/Rectangle12.png';
-import { SNV, TonIcon } from '../assets/images';
-
+// import { SNV, TonIcon } from '../assets/images';
+import { TON, STON, USDT } from '../assets/images';
 
 export const TeamMembers = {
     title: "Our team",
@@ -153,9 +153,9 @@ export const stakeData = {
 };
 
 export const currencies = [
-    { name: 'SNV', icon: SNV },
-    { name: 'USDT', icon: TonIcon },
-    { name: 'TON', icon: TonIcon },
+    { name: 'TON', icon: TON, address: 'EQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAM9c'},
+    { name: 'USDT', icon: USDT, address: 'EQCxE6mUtQJKFnGfaROTKOt1lZbDiiX1kCixRv7Nw2Id_sDs' },
+    { name: 'STON', icon: STON, address: 'EQA2kCVNwVsil2EM2mB0SkXytxCqQjS4mttjDpnXmwG9T6bO' },
 ];
 
 export const staticPrivacyPolicy = {
