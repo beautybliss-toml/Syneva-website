@@ -1,7 +1,7 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import { Footer, Navbar } from "./components";
 import { Download, Home, NotFound, Privacy, Reward, Stake, Swap, Team } from "./pages";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (

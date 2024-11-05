@@ -7,6 +7,7 @@ import { currencies as data } from '../constants';
 
 const Swap: React.FC = () => {
     const [currencies, setCurrencies] = useState<{ name: string; icon: string }[]>([]);
+    const [pairs, setPairs] = useState<string[][]>([]);
     const [payCurrency, setPayCurrency] = useState('SNV');
     const [receiveCurrency, setReceiveCurrency] = useState('TON');
     const [payAmount, setPayAmount] = useState(1);
@@ -17,7 +18,9 @@ const Swap: React.FC = () => {
     useEffect(() => {
         const fetchCurrencies = async () => {
             try {
-                // const response = await fetch('/api/currencies'); // Replace with your API endpoint
+                console.log(`API = ${import.meta.env.VITE_API_URL}`);
+                const response = await fetch(import.meta.env.VITE_API_URL + '/v1/markets'); // Replace with your API endpoint
+                setPairs(await response.json());
                 // const data = await response.json();
                 setCurrencies(data); // replace with the fetched data
             } catch (error) {
@@ -27,6 +30,10 @@ const Swap: React.FC = () => {
 
         fetchCurrencies();
     }, [currencies]);
+
+    useEffect(() => {
+        console.log(pairs)
+    }, [pairs]);
 
     const handleSwap = () => {
         gsap.to(swapIconRef.current, {
