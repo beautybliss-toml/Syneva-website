@@ -6,11 +6,11 @@ import { SwapIcon } from "../assets/images";
 import { currencies as data } from '../constants';
 
 const Swap: React.FC = () => {
-    const [currencies, setCurrencies] = useState<{ name: string; icon: string }[]>([]);
+    const [currencies, setCurrencies] = useState<{ name: string; icon: string; address: string }[]>([]);
     // const [pairs, setPairs] = useState<string[][]>([]);
     const [payCurrency, setPayCurrency] = useState('TON');
     const [receiveCurrency, setReceiveCurrency] = useState('USDT');
-    const [payAmount, setPayAmount] = useState(1);
+    const [payAmount, setPayAmount] = useState(0.00);
     const [receiveAmount, setReceiveAmount] = useState(5.55);
     const swapIconRef = useRef<HTMLImageElement>(null);
 
@@ -63,7 +63,7 @@ const Swap: React.FC = () => {
             <div className="max-w-screen-sm py-5 mx-auto">
                 <hr />
                 <div className="flex items-center justify-between my-5">
-                    <CurrencyDisplay label="You pay" amount={payAmount} />
+                    <CurrencyDisplay label="You pay" amount={payAmount} setAmount={setPayAmount} />
                     <CurrencyDropdownButton selectedCurrency={payCurrency} onSelect={setPayCurrency} currencies={currencies} />
                 </div>
                 <div className="flex items-center gap-3">
@@ -78,7 +78,7 @@ const Swap: React.FC = () => {
                     <div className="w-full h-px bg-neutral-300" />
                 </div>
                 <div className="flex items-center justify-between my-5">
-                    <CurrencyDisplay label="You receive" amount={receiveAmount} />
+                    <CurrencyDisplay label="You receive" amount={receiveAmount} setAmount={setReceiveAmount} />
                     <CurrencyDropdownButton selectedCurrency={receiveCurrency} onSelect={setReceiveCurrency} currencies={currencies} />
                 </div>
                 <hr />
