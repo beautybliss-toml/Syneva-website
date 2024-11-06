@@ -153,9 +153,9 @@ export const stakeData = {
 };
 
 export const currencies = [
-    { name: 'TON', icon: TON, address: 'EQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAM9c'},
-    { name: 'USDT', icon: USDT, address: 'EQCxE6mUtQJKFnGfaROTKOt1lZbDiiX1kCixRv7Nw2Id_sDs' },
-    { name: 'STON', icon: STON, address: 'EQA2kCVNwVsil2EM2mB0SkXytxCqQjS4mttjDpnXmwG9T6bO' },
+    { name: 'TON', icon: TON, address: 'EQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAM9c', decimals: 9},
+    { name: 'USDT', icon: USDT, address: 'EQCxE6mUtQJKFnGfaROTKOt1lZbDiiX1kCixRv7Nw2Id_sDs', decimals: 6 },
+    { name: 'STON', icon: STON, address: 'EQA2kCVNwVsil2EM2mB0SkXytxCqQjS4mttjDpnXmwG9T6bO', decimals: 9 },
 ];
 
 export const staticPrivacyPolicy = {

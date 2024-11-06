@@ -4,14 +4,24 @@ import gsap from 'gsap';
 import { CurrencyDropdownButton, CurrencyDisplay } from '../components';
 import { SwapIcon } from "../assets/images";
 import { currencies as data } from '../constants';
+import { useTonAddress } from '@tonconnect/ui-react';
+import axios from 'axios';
 
 const Swap: React.FC = () => {
-    const [currencies, setCurrencies] = useState<{ name: string; icon: string; address: string }[]>([]);
+    const [currencies, setCurrencies] = useState<{ name: string; icon: string; address: string, decimals: number }[]>([]);
     // const [pairs, setPairs] = useState<string[][]>([]);
-    const [payCurrency, setPayCurrency] = useState('TON');
-    const [receiveCurrency, setReceiveCurrency] = useState('USDT');
-    const [payAmount, setPayAmount] = useState(0.00);
-    const [receiveAmount, setReceiveAmount] = useState(5.55);
+    
+    const [offerToken, setOfferToken] = useState('TON');
+    const [offerAddress, setOfferAddress] = useState('EQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAM9c');
+    const [offerAmount, setOfferAmount] = useState(0);
+    const [offerDecimals, setOfferDecimals] = useState(9);
+
+    const [askToken, setAskToken] = useState('USDT');
+    const [askAddress, setAskAddress] = useState('EQCxE6mUtQJKFnGfaROTKOt1lZbDiiX1kCixRv7Nw2Id_sDs');
+    const [askAmount, setAskAmount] = useState(0);
+    const [askDecimals, setAskDecimals] = useState(6);
+    
+    const userAddress = useTonAddress();
     const swapIconRef = useRef<HTMLImageElement>(null);
 
     // Fetch currencies from backend
@@ -31,6 +41,91 @@ const Swap: React.FC = () => {
         fetchCurrencies();
     }, [currencies]);
 
+    const onChangeOfferAmount = (value: number) => {
+        setOfferAmount(value);
+        if (value > 0 && askAddress.length > 0) {
+            const payload = {
+                jsonrpc: "2.0",
+                id: 24,
+                method: "dex.simulate_swap",
+                params: {
+                    offer_address: offerAddress,
+                    offer_units: (value * Math.pow(10, offerDecimals)).toString(),
+                    ask_address: askAddress,
+                    slippage_tolerance: "0.02"
+                }
+            };
+            axios.post(import.meta.env.VITE_RPC_URL, payload)
+                .then(response => {
+                    console.log(response.data);
+                    console.log(parseFloat(response.data?.result?.ask_units) );
+                    setAskAmount(parseFloat(response.data?.result?.ask_units) / Math.pow(10, askDecimals));
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+        }
+        if ( offerAmount == 0 ) setAskAmount(0);
+    };
+
+    useEffect(() => {
+        setOfferAmount(0.00);
+    }, [offerAddress]);
+
+    const onChangeAskAmount = (value: number) => {
+        setAskAmount(value);
+        console.log((value * Math.pow(10, 6)).toString());
+        if (value > 0 && offerAddress.length > 0) {
+            const payload = {
+                jsonrpc: "2.0",
+                id: 24,
+                method: "dex.reverse_simulate_swap",
+                params: {
+                    ask_address: askAddress,
+                    ask_units: (value * Math.pow(10, askDecimals)).toString(),
+                    offer_address: offerAddress,
+                    slippage_tolerance: "0.02"
+                }
+            };
+            axios.post(import.meta.env.VITE_RPC_URL, payload)
+                .then(response => {
+                    console.log(response.data);
+                    console.log(parseFloat(response.data?.result?.offer_units) );
+                    setOfferAmount(parseFloat(response.data?.result?.offer_units) / Math.pow(10, offerDecimals));
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+        }
+        if ( askAmount == 0 ) setOfferAmount(0);
+    };
+
+    useEffect(() => {
+        setAskAmount(0.00);
+    }, [askAddress]);
+
+    useEffect(() => {
+        console.log(`offerToken ${offerToken}`);
+        const currency = currencies.find(item => item.name === offerToken);
+        console.log(`currency ${currency?.address}`);
+        if (currency) {
+            setOfferAmount(0);
+            setOfferAddress(currency.address);
+            setOfferDecimals(currency.decimals);
+        }
+    }, [offerToken]);
+
+    useEffect(() => {
+        console.log(`askToken ${askToken}`);
+        const currency = currencies.find(item => item.name === askToken);
+        console.log(`currency ${currency?.address}`);
+        if (currency) {
+            setAskAmount(0);
+            setAskAddress(currency.address);
+            setAskDecimals(currency.decimals);
+        }
+    }, [askToken]);
+
     const handleSwap = () => {
         gsap.to(swapIconRef.current, {
             rotation: 180,
@@ -40,19 +135,31 @@ const Swap: React.FC = () => {
                 gsap.set(swapIconRef.current, { rotation: 0 });
 
                 // Swap the currencies
-                setPayCurrency(prev => {
-                    const newCurrency = prev === 'SNV' ? 'TON' : 'SNV';
-                    if (newCurrency === 'TON') {
-                        setReceiveAmount(12.29);
-                        setPayAmount(1);
-                        return newCurrency;
-                    } else {
-                        setReceiveAmount(5.55);
-                        setPayAmount(1);
-                        return newCurrency;
-                    }
-                });
-                setReceiveCurrency(prev => (prev === 'TON' ? 'SNV' : 'TON'));
+
+                // const tmpToken = offerToken;
+                // const tmpAddress = offerAddress;
+                // const tmpAmount = offerAmount;
+                // const tmpDecimals = offerDecimals;
+
+                // setAskToken(tmpToken);
+                // setAskAddress(tmpAddress);
+                // setAskAmount(tmpAmount);
+                // setAskDecimals(tmpDecimals);
+                // onChangeAskAmount(tmpAmount);
+
+                // setOfferToken(prev => {
+                //     setAskAmount(12.29);
+                //     const newCurrency = prev === 'TON' ? 'TON' : 'SNV';
+                //     if (newCurrency === 'TON') {
+                //         setOfferAmount(1);
+                //         setAskAmount(5.55);
+                //         return newCurrency;
+                //     } else {
+                //         setOfferAmount(1);
+                //         return newCurrency;
+                //     }
+                // });
+                // setAskToken(prev => (prev === 'TON' ? 'SNV' : 'TON'));
             }
         });
     };
@@ -63,8 +170,8 @@ const Swap: React.FC = () => {
             <div className="max-w-screen-sm py-5 mx-auto">
                 <hr />
                 <div className="flex items-center justify-between my-5">
-                    <CurrencyDisplay label="You pay" amount={payAmount} setAmount={setPayAmount} />
-                    <CurrencyDropdownButton selectedCurrency={payCurrency} onSelect={setPayCurrency} currencies={currencies} />
+                    <CurrencyDisplay label="You pay" amount={offerAmount} setAmount={setOfferAmount} onChangeAmount={onChangeOfferAmount} />
+                    <CurrencyDropdownButton selectedCurrency={offerToken} onSelect={setOfferToken} currencies={currencies} />
                 </div>
                 <div className="flex items-center gap-3">
                     <div className="w-full h-px bg-neutral-300" />
@@ -78,14 +185,15 @@ const Swap: React.FC = () => {
                     <div className="w-full h-px bg-neutral-300" />
                 </div>
                 <div className="flex items-center justify-between my-5">
-                    <CurrencyDisplay label="You receive" amount={receiveAmount} setAmount={setReceiveAmount} />
-                    <CurrencyDropdownButton selectedCurrency={receiveCurrency} onSelect={setReceiveCurrency} currencies={currencies} />
+                    <CurrencyDisplay label="You receive" amount={askAmount} setAmount={setAskAmount} onChangeAmount={onChangeAskAmount} />
+                    <CurrencyDropdownButton selectedCurrency={askToken} onSelect={setAskToken} currencies={currencies} />
                 </div>
                 <hr />
                 <p className="mx-auto text-sm text-[#1E2337] text-center my-5">1 SNV ≈ 0.081367 TON</p>
                 <Button className="bg-gradient-to-r from-[#2d83ec] to-[#1ac9ff] text-white w-full rounded-full text-base py-4">
-                    Connect wallet
+                    Swap
                 </Button>
+                
             </div>
         </div>
     );

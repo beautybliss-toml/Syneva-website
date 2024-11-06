@@ -86,7 +86,7 @@ const Stake: React.FC = () => {
                         <div className="col-span-1 lg:hidden" />
                     </div>
                     <Button className={`bg-gradient-to-r from-[#2d83ec] to-[#1ac9ff] text-white w-full rounded-full text-base py-4`}>
-                        Connect wallet
+                        Stake
                     </Button>
                 </div>
             </div>

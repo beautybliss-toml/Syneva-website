@@ -5,6 +5,7 @@ interface Currency {
     name: string;
     icon: string;
     address: string;
+    decimals: number;
 }
 
 interface CurrencyDropdownButtonProps {

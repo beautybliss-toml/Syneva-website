@@ -7,6 +7,7 @@ import {
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { TonConnectButton } from "@tonconnect/ui-react";
 
 // Initial navigation array
 const initialNavigation = [
@@ -81,11 +82,12 @@ export default function Navbar() {
                 ))}
               </div>
             </div>
-            <Link to={'/download'}>
+            {/* <Link to={'/download'}>
               <Button className="sm:inline-flex hidden items-center px-4 py-2 border border-[#E9EEF1] rounded-full text-[#1E2337] bg-white hover:bg-gray-100">
                 Download
               </Button>
-            </Link>
+            </Link> */}
+            <TonConnectButton className="sm:inline-flex hidden items-center" />
           </div>
           <DisclosurePanel className="absolute top-0 right-0 z-10 w-[80%] h-screen bg-[#F7F9FB] sm:hidden">
             <div className="relative py-10">
