@@ -6,6 +6,8 @@ import { SwapIcon } from "../assets/images";
 import { currencies as data } from '../constants';
 import { useTonAddress } from '@tonconnect/ui-react';
 import axios from 'axios';
+import { TonClient, toNano } from '@ton/ton';
+import { DEX, pTON } from '@ston-fi/sdk';
 
 const Swap: React.FC = () => {
     const [currencies, setCurrencies] = useState<{ name: string; icon: string; address: string, decimals: number }[]>([]);
@@ -20,9 +22,16 @@ const Swap: React.FC = () => {
     const [askAddress, setAskAddress] = useState('EQCxE6mUtQJKFnGfaROTKOt1lZbDiiX1kCixRv7Nw2Id_sDs');
     const [askAmount, setAskAmount] = useState(0);
     const [askDecimals, setAskDecimals] = useState(6);
+    const [minAskAmount, setMinAskAmount] = useState(5.8);
     
     const userAddress = useTonAddress();
     const swapIconRef = useRef<HTMLImageElement>(null);
+
+    // const client = new TonClient({
+    //     endpoint: "https://toncenter.com/api/v2/jsonRPC",
+    // });
+    
+    // const router = client.open(new DEX.v1.Router());
 
     // Fetch currencies from backend
     useEffect(() => {
@@ -60,6 +69,7 @@ const Swap: React.FC = () => {
                     console.log(response.data);
                     console.log(parseFloat(response.data?.result?.ask_units) );
                     setAskAmount(parseFloat(response.data?.result?.ask_units) / Math.pow(10, askDecimals));
+                    setMinAskAmount(parseFloat(response.data?.result?.min_ask_units) / Math.pow(10, askDecimals));
                 })
                 .catch(error => {
                     console.error(error);
@@ -92,6 +102,7 @@ const Swap: React.FC = () => {
                     console.log(response.data);
                     console.log(parseFloat(response.data?.result?.offer_units) );
                     setOfferAmount(parseFloat(response.data?.result?.offer_units) / Math.pow(10, offerDecimals));
+                    setMinAskAmount(parseFloat(response.data?.result?.min_ask_units) / Math.pow(10, askDecimals));
                 })
                 .catch(error => {
                     console.error(error);
@@ -125,6 +136,7 @@ const Swap: React.FC = () => {
             setAskDecimals(currency.decimals);
         }
     }, [askToken]);
+
 
     const handleSwap = () => {
         gsap.to(swapIconRef.current, {
@@ -164,6 +176,43 @@ const Swap: React.FC = () => {
         });
     };
 
+    const onSwap = async () => {
+        // console.log(`This is onSwap function consonle ${userAddress}---`);
+        // if (askToken === 'TON') {
+        //     console.log(`Ask token is Ton`);
+        //     // swap TON to Jetton
+        //     const txParams = await router.getSwapTonToJettonTxParams({
+        //         userWalletAddress: userAddress, // ! replace with your address
+        //         proxyTon: new pTON.v1(),
+        //         offerAmount: toNano(askAmount),
+        //         askJettonAddress: askAddress, // STON
+        //         minAskAmount: minAskAmount,
+        //         queryId: 24,
+        //     });
+        // }
+        // else if (offerToken === 'TON') {
+        //     // swap Jetton to TON
+        //     const txParams = await router.getSwapJettonToTonTxParams({
+        //         userWalletAddress: userAddress, 
+        //         offerJettonAddress: offerAddress, 
+        //         offerAmount: toNano(offerAmount),
+        //         proxyTon: new pTON.v1(),
+        //         minAskAmount: minAskAmount,
+        //         queryId: 24,
+        //     });
+        // } else {
+        //     // swap Jetton to Jetton
+        //     const txParams = await router.getSwapJettonToJettonTxParams({
+        //         userWalletAddress: userAddress, 
+        //         offerJettonAddress: offerAddress, 
+        //         offerAmount: toNano(offerAmount),
+        //         askJettonAddress: askAddress, 
+        //         minAskAmount: minAskAmount,
+        //         queryId: 24,
+        //     });
+        // }
+    };
+
     return (
         <div className="max-w-screen-sm p-4 mx-auto my-4 md:my-11">
             <h2 className="text-[40px] my-5 font-bold">Swap</h2>
@@ -190,7 +239,7 @@ const Swap: React.FC = () => {
                 </div>
                 <hr />
                 <p className="mx-auto text-sm text-[#1E2337] text-center my-5">1 SNV ≈ 0.081367 TON</p>
-                <Button className="bg-gradient-to-r from-[#2d83ec] to-[#1ac9ff] text-white w-full rounded-full text-base py-4">
+                <Button className="bg-gradient-to-r from-[#2d83ec] to-[#1ac9ff] text-white w-full rounded-full text-base py-4" onClick={onSwap}>
                     Swap
                 </Button>
                 
