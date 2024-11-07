@@ -4,6 +4,9 @@ import { SnackbarProvider } from 'notistack';
 import { TonConnectUIProvider } from '@tonconnect/ui-react';
 import App from './App.tsx'
 import './index.css'
+import { Buffer } from 'buffer';
+window.Buffer = Buffer;
+globalThis.Buffer = Buffer;
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
