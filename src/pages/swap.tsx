@@ -6,8 +6,8 @@ import { SwapIcon } from "../assets/images";
 import { currencies as data } from '../constants';
 import { useTonAddress } from '@tonconnect/ui-react';
 import axios from 'axios';
-// import { TonClient, toNano } from '@ton/ton';
-// import { DEX, pTON } from '@ston-fi/sdk';
+import { TonClient, toNano } from '@ton/ton';
+import { DEX, pTON } from '@ston-fi/sdk';
 
 const Swap: React.FC = () => {
     const [currencies, setCurrencies] = useState<{ name: string; icon: string; address: string, decimals: number }[]>([]);
@@ -27,11 +27,11 @@ const Swap: React.FC = () => {
     const userAddress = useTonAddress();
     const swapIconRef = useRef<HTMLImageElement>(null);
 
-    // const client = new TonClient({
-    //     endpoint: "https://toncenter.com/api/v2/jsonRPC",
-    // });
+    const client = new TonClient({
+        endpoint: "https://toncenter.com/api/v2/jsonRPC",
+    });
     
-    // const router = client.open(new DEX.v1.Router());
+    const router = client.open(new DEX.v1.Router());
 
     // Fetch currencies from backend
     useEffect(() => {
@@ -179,40 +179,46 @@ const Swap: React.FC = () => {
     };
 
     const onSwap = async () => {
-        // console.log(`This is onSwap function consonle ${userAddress}---`);
-        // if (askToken === 'TON') {
-        //     console.log(`Ask token is Ton`);
-        //     // swap TON to Jetton
-        //     const txParams = await router.getSwapTonToJettonTxParams({
-        //         userWalletAddress: userAddress, // ! replace with your address
-        //         proxyTon: new pTON.v1(),
-        //         offerAmount: toNano(askAmount),
-        //         askJettonAddress: askAddress, // STON
-        //         minAskAmount: minAskAmount,
-        //         queryId: 24,
-        //     });
-        // }
-        // else if (offerToken === 'TON') {
-        //     // swap Jetton to TON
-        //     const txParams = await router.getSwapJettonToTonTxParams({
-        //         userWalletAddress: userAddress, 
-        //         offerJettonAddress: offerAddress, 
-        //         offerAmount: toNano(offerAmount),
-        //         proxyTon: new pTON.v1(),
-        //         minAskAmount: minAskAmount,
-        //         queryId: 24,
-        //     });
-        // } else {
-        //     // swap Jetton to Jetton
-        //     const txParams = await router.getSwapJettonToJettonTxParams({
-        //         userWalletAddress: userAddress, 
-        //         offerJettonAddress: offerAddress, 
-        //         offerAmount: toNano(offerAmount),
-        //         askJettonAddress: askAddress, 
-        //         minAskAmount: minAskAmount,
-        //         queryId: 24,
-        //     });
-        // }
+        console.log(`This is onSwap function consonle ${userAddress}---`);
+        if (askToken === 'TON') {
+            console.log(`Ask token is Ton`);
+            // swap TON to Jetton
+            const txParams = await router.getSwapTonToJettonTxParams({
+                userWalletAddress: userAddress, // ! replace with your address
+                proxyTon: new pTON.v1(),
+                offerAmount: toNano(askAmount),
+                askJettonAddress: askAddress, // STON
+                minAskAmount: minAskAmount,
+                queryId: 24,
+            });
+
+            txParams
+        }
+        else if (offerToken === 'TON') {
+            // swap Jetton to TON
+            const txParams = await router.getSwapJettonToTonTxParams({
+                userWalletAddress: userAddress, 
+                offerJettonAddress: offerAddress, 
+                offerAmount: toNano(offerAmount),
+                proxyTon: new pTON.v1(),
+                minAskAmount: minAskAmount,
+                queryId: 24,
+            });
+
+            txParams
+        } else {
+            // swap Jetton to Jetton
+            const txParams = await router.getSwapJettonToJettonTxParams({
+                userWalletAddress: userAddress, 
+                offerJettonAddress: offerAddress, 
+                offerAmount: toNano(offerAmount),
+                askJettonAddress: askAddress, 
+                minAskAmount: minAskAmount,
+                queryId: 24,
+            });
+
+            txParams
+        }
     };
 
     return (
