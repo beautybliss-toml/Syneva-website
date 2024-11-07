@@ -1,11 +1,10 @@
 interface CurrencyDisplayProps {
     label: string;
     amount: number;
-    setAmount: (amount: number) => void,
     onChangeAmount: (amount: number) => void,
 }
 
-const CurrencyDisplay: React.FC<CurrencyDisplayProps> = ({ label, amount, setAmount, onChangeAmount }) => {
+const CurrencyDisplay: React.FC<CurrencyDisplayProps> = ({ label, amount, onChangeAmount }) => {
     return (
         <div className="w-[60%]">
             <p className="text-sm font-normal text-[#1E2337]">{label}</p>

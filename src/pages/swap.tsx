@@ -6,8 +6,8 @@ import { SwapIcon } from "../assets/images";
 import { currencies as data } from '../constants';
 import { useTonAddress } from '@tonconnect/ui-react';
 import axios from 'axios';
-import { TonClient, toNano } from '@ton/ton';
-import { DEX, pTON } from '@ston-fi/sdk';
+// import { TonClient, toNano } from '@ton/ton';
+// import { DEX, pTON } from '@ston-fi/sdk';
 
 const Swap: React.FC = () => {
     const [currencies, setCurrencies] = useState<{ name: string; icon: string; address: string, decimals: number }[]>([]);
@@ -102,6 +102,8 @@ const Swap: React.FC = () => {
                     console.log(response.data);
                     console.log(parseFloat(response.data?.result?.offer_units) );
                     setOfferAmount(parseFloat(response.data?.result?.offer_units) / Math.pow(10, offerDecimals));
+                    minAskAmount; //tmp
+                    userAddress; //tmp
                     setMinAskAmount(parseFloat(response.data?.result?.min_ask_units) / Math.pow(10, askDecimals));
                 })
                 .catch(error => {
@@ -219,7 +221,7 @@ const Swap: React.FC = () => {
             <div className="max-w-screen-sm py-5 mx-auto">
                 <hr />
                 <div className="flex items-center justify-between my-5">
-                    <CurrencyDisplay label="You pay" amount={offerAmount} setAmount={setOfferAmount} onChangeAmount={onChangeOfferAmount} />
+                    <CurrencyDisplay label="You pay" amount={offerAmount} onChangeAmount={onChangeOfferAmount} />
                     <CurrencyDropdownButton selectedCurrency={offerToken} onSelect={setOfferToken} currencies={currencies} />
                 </div>
                 <div className="flex items-center gap-3">
@@ -234,7 +236,7 @@ const Swap: React.FC = () => {
                     <div className="w-full h-px bg-neutral-300" />
                 </div>
                 <div className="flex items-center justify-between my-5">
-                    <CurrencyDisplay label="You receive" amount={askAmount} setAmount={setAskAmount} onChangeAmount={onChangeAskAmount} />
+                    <CurrencyDisplay label="You receive" amount={askAmount} onChangeAmount={onChangeAskAmount} />
                     <CurrencyDropdownButton selectedCurrency={askToken} onSelect={setAskToken} currencies={currencies} />
                 </div>
                 <hr />
