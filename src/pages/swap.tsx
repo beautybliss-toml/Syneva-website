@@ -10,7 +10,7 @@ import { TonClient, toNano } from '@ton/ton';
 import { DEX, pTON } from '@ston-fi/sdk';
 
 const Swap: React.FC = () => {
-    const [tonConnectUI, setOptions] = useTonConnectUI();
+    const [tonConnectUI] = useTonConnectUI();
     const [currencies, setCurrencies] = useState<{ name: string; icon: string; address: string, decimals: number }[]>([]);
     // const [pairs, setPairs] = useState<string[][]>([]);
 
@@ -180,8 +180,7 @@ const Swap: React.FC = () => {
         });
     };
 
-    const onSwap = async () => {
-        console.log(`This is onSwap function consonle ${userAddress}---`);
+    const getTxParams = async () => {
         if (askToken === 'TON') {
             console.log(`Ask token is Ton`);
             // swap TON to Jetton
@@ -189,22 +188,14 @@ const Swap: React.FC = () => {
                 userWalletAddress: userAddress, // ! replace with your address
                 proxyTon: new pTON.v1(),
                 offerAmount: toNano(askAmount),
-                askJettonAddress: askAddress, // STON
-                minAskAmount: minAskAmount,
+                askJettonAddress: "EQA2kCVNwVsil2EM2mB0SkXytxCqQjS4mttjDpnXmwG9T6bO", // STON
+                minAskAmount: Math.floor(minAskAmount),
                 queryId: 24,
             });
 
-            txParams
+            return txParams
         }
         else if (offerToken === 'TON') {
-            console.log("***********************************")
-            console.log(`useraddress -> ${userAddress}`)
-            console.log(`offeraddress -> ${offerAddress}`)
-            console.log(offerAmount)
-            console.log(pTON)
-            console.log(minAskAmount)
-            console.log(router)
-
             // swap Jetton to TON
             const txParams = await router.getSwapJettonToTonTxParams({
                 userWalletAddress: userAddress,
@@ -215,37 +206,36 @@ const Swap: React.FC = () => {
                 queryId: 24,
             });
 
-            console.log(txParams)
-
-            const swapResponse = await tonConnectUI.sendTransaction({
-                validUntil: Date.now() + 1000000,
-                messages: [
-                    {
-                        address: txParams.to.toString(),
-                        amount: txParams.value.toString(),
-                        payload: txParams.body?.toBoc().toString("base64")
-                    }
-                ]
-            })
-
-            console.log(swapResponse)
-
-            txParams
+            return txParams
         } else {
             // swap Jetton to Jetton
             const txParams = await router.getSwapJettonToJettonTxParams({
                 userWalletAddress: userAddress,
-                offerJettonAddress: offerAddress,
+                offerJettonAddress: "EQA2kCVNwVsil2EM2mB0SkXytxCqQjS4mttjDpnXmwG9T6bO",
                 offerAmount: toNano(offerAmount),
-                askJettonAddress: askAddress,
-                minAskAmount: minAskAmount,
+                askJettonAddress: "EQBX6K9aXVl3nXINCyPPL86C4ONVmQ8vK360u6dykFKXpHCa",
+                minAskAmount: Math.floor(minAskAmount),
                 queryId: 24,
             });
 
-            console.log(txParams)
-
-            txParams
+            return txParams
         }
+    }
+
+    const onSwap = async () => {
+        console.log(`This is onSwap function consonle ${userAddress}---`);
+        const txParams = await getTxParams()
+
+        await tonConnectUI.sendTransaction({
+            validUntil: Date.now() + 1000000,
+            messages: [
+                {
+                    address: txParams.to.toString(),
+                    amount: txParams.value.toString(),
+                    payload: txParams.body?.toBoc().toString("base64")
+                }
+            ]
+        })
     };
 
     return (
