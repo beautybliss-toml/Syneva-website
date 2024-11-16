@@ -65,7 +65,6 @@ const Swap: React.FC = () => {
                     slippage_tolerance: "0.02"
                 }
             };
-            console.log(import.meta.env.VITE_RPC_URL)
             axios.post(import.meta.env.VITE_RPC_URL, payload)
                 .then(response => {
                     console.log(response.data);
@@ -125,6 +124,7 @@ const Swap: React.FC = () => {
         console.log(`currency ${currency?.address}`);
         if (currency) {
             setOfferAmount(0);
+            setAskAmount(0)
             setOfferAddress(currency.address);
             setOfferDecimals(currency.decimals);
         }
@@ -135,6 +135,7 @@ const Swap: React.FC = () => {
         const currency = currencies.find(item => item.name === askToken);
         console.log(`currency ${currency?.address}`);
         if (currency) {
+            setOfferAmount(0)
             setAskAmount(0);
             setAskAddress(currency.address);
             setAskDecimals(currency.decimals);
