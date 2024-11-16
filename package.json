@@ -13,7 +13,7 @@
     "@esbuild-plugins/node-globals-polyfill": "^0.2.3",
     "@headlessui/react": "^2.1.8",
     "@heroicons/react": "^2.1.5",
-    "@ston-fi/sdk": "^1.2.0",
+    "@ston-fi/sdk": "^2.0.0-rc.9",
     "@ton/core": "^0.59.0",
     "@ton/crypto": "^3.3.0",
     "@ton/ton": "^13.9.0",
