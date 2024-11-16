@@ -189,7 +189,7 @@ const Swap: React.FC = () => {
                 proxyTon: new pTON.v1(),
                 offerAmount: toNano(askAmount),
                 askJettonAddress: "EQA2kCVNwVsil2EM2mB0SkXytxCqQjS4mttjDpnXmwG9T6bO", // STON
-                minAskAmount: Math.floor(minAskAmount),
+                minAskAmount: toNano(minAskAmount),
                 queryId: 24,
             });
 
@@ -202,7 +202,7 @@ const Swap: React.FC = () => {
                 offerJettonAddress: "EQBX6K9aXVl3nXINCyPPL86C4ONVmQ8vK360u6dykFKXpHCa",
                 offerAmount: toNano(offerAmount),
                 proxyTon: new pTON.v1(),
-                minAskAmount: Math.floor(minAskAmount),
+                minAskAmount: toNano(minAskAmount),
                 queryId: 24,
             });
 
@@ -214,7 +214,7 @@ const Swap: React.FC = () => {
                 offerJettonAddress: "EQA2kCVNwVsil2EM2mB0SkXytxCqQjS4mttjDpnXmwG9T6bO",
                 offerAmount: toNano(offerAmount),
                 askJettonAddress: "EQBX6K9aXVl3nXINCyPPL86C4ONVmQ8vK360u6dykFKXpHCa",
-                minAskAmount: Math.floor(minAskAmount),
+                minAskAmount: toNano(minAskAmount),
                 queryId: 24,
             });
 
