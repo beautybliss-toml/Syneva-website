@@ -4,15 +4,16 @@ import gsap from 'gsap';
 import { CurrencyDropdownButton, CurrencyDisplay } from '../components';
 import { SwapIcon } from "../assets/images";
 import { currencies as data } from '../constants';
-import { useTonAddress } from '@tonconnect/ui-react';
+import { useTonAddress, useTonConnectUI } from '@tonconnect/ui-react';
 import axios from 'axios';
 import { TonClient, toNano } from '@ton/ton';
 import { DEX, pTON } from '@ston-fi/sdk';
 
 const Swap: React.FC = () => {
+    const [tonConnectUI] = useTonConnectUI();
     const [currencies, setCurrencies] = useState<{ name: string; icon: string; address: string, decimals: number }[]>([]);
     // const [pairs, setPairs] = useState<string[][]>([]);
-    
+
     const [offerToken, setOfferToken] = useState('TON');
     const [offerAddress, setOfferAddress] = useState('EQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAM9c');
     const [offerAmount, setOfferAmount] = useState(0);
@@ -23,14 +24,14 @@ const Swap: React.FC = () => {
     const [askAmount, setAskAmount] = useState(0);
     const [askDecimals, setAskDecimals] = useState(6);
     const [minAskAmount, setMinAskAmount] = useState(5.8);
-    
+
     const userAddress = useTonAddress();
     const swapIconRef = useRef<HTMLImageElement>(null);
 
     const client = new TonClient({
         endpoint: "https://toncenter.com/api/v2/jsonRPC",
     });
-    
+
     const router = client.open(new DEX.v1.Router());
 
     // Fetch currencies from backend
@@ -67,7 +68,7 @@ const Swap: React.FC = () => {
             axios.post(import.meta.env.VITE_RPC_URL, payload)
                 .then(response => {
                     console.log(response.data);
-                    console.log(parseFloat(response.data?.result?.ask_units) );
+                    console.log(parseFloat(response.data?.result?.ask_units));
                     setAskAmount(parseFloat(response.data?.result?.ask_units) / Math.pow(10, askDecimals));
                     setMinAskAmount(parseFloat(response.data?.result?.min_ask_units) / Math.pow(10, askDecimals));
                 })
@@ -75,7 +76,7 @@ const Swap: React.FC = () => {
                     console.error(error);
                 });
         }
-        if ( offerAmount == 0 ) setAskAmount(0);
+        if (offerAmount == 0) setAskAmount(0);
     };
 
     useEffect(() => {
@@ -100,7 +101,7 @@ const Swap: React.FC = () => {
             axios.post(import.meta.env.VITE_RPC_URL, payload)
                 .then(response => {
                     console.log(response.data);
-                    console.log(parseFloat(response.data?.result?.offer_units) );
+                    console.log(parseFloat(response.data?.result?.offer_units));
                     setOfferAmount(parseFloat(response.data?.result?.offer_units) / Math.pow(10, offerDecimals));
                     minAskAmount; //tmp
                     userAddress; //tmp
@@ -110,7 +111,7 @@ const Swap: React.FC = () => {
                     console.error(error);
                 });
         }
-        if ( askAmount == 0 ) setOfferAmount(0);
+        if (askAmount == 0) setOfferAmount(0);
     };
 
     useEffect(() => {
@@ -123,6 +124,7 @@ const Swap: React.FC = () => {
         console.log(`currency ${currency?.address}`);
         if (currency) {
             setOfferAmount(0);
+            setAskAmount(0)
             setOfferAddress(currency.address);
             setOfferDecimals(currency.decimals);
         }
@@ -133,6 +135,7 @@ const Swap: React.FC = () => {
         const currency = currencies.find(item => item.name === askToken);
         console.log(`currency ${currency?.address}`);
         if (currency) {
+            setOfferAmount(0)
             setAskAmount(0);
             setAskAddress(currency.address);
             setAskDecimals(currency.decimals);
@@ -178,8 +181,7 @@ const Swap: React.FC = () => {
         });
     };
 
-    const onSwap = async () => {
-        console.log(`This is onSwap function consonle ${userAddress}---`);
+    const getTxParams = async () => {
         if (askToken === 'TON') {
             console.log(`Ask token is Ton`);
             // swap TON to Jetton
@@ -187,38 +189,54 @@ const Swap: React.FC = () => {
                 userWalletAddress: userAddress, // ! replace with your address
                 proxyTon: new pTON.v1(),
                 offerAmount: toNano(askAmount),
-                askJettonAddress: askAddress, // STON
-                minAskAmount: minAskAmount,
+                askJettonAddress: "EQA2kCVNwVsil2EM2mB0SkXytxCqQjS4mttjDpnXmwG9T6bO", // STON
+                minAskAmount: toNano(minAskAmount),
                 queryId: 24,
             });
 
-            txParams
+            return txParams
         }
         else if (offerToken === 'TON') {
             // swap Jetton to TON
             const txParams = await router.getSwapJettonToTonTxParams({
-                userWalletAddress: userAddress, 
-                offerJettonAddress: offerAddress, 
+                userWalletAddress: userAddress,
+                offerJettonAddress: "EQBX6K9aXVl3nXINCyPPL86C4ONVmQ8vK360u6dykFKXpHCa",
                 offerAmount: toNano(offerAmount),
                 proxyTon: new pTON.v1(),
-                minAskAmount: minAskAmount,
+                minAskAmount: toNano(minAskAmount),
                 queryId: 24,
             });
 
-            txParams
+            return txParams
         } else {
             // swap Jetton to Jetton
             const txParams = await router.getSwapJettonToJettonTxParams({
-                userWalletAddress: userAddress, 
-                offerJettonAddress: offerAddress, 
+                userWalletAddress: userAddress,
+                offerJettonAddress: "EQA2kCVNwVsil2EM2mB0SkXytxCqQjS4mttjDpnXmwG9T6bO",
                 offerAmount: toNano(offerAmount),
-                askJettonAddress: askAddress, 
-                minAskAmount: minAskAmount,
+                askJettonAddress: "EQBX6K9aXVl3nXINCyPPL86C4ONVmQ8vK360u6dykFKXpHCa",
+                minAskAmount: toNano(minAskAmount),
                 queryId: 24,
             });
 
-            txParams
+            return txParams
         }
+    }
+
+    const onSwap = async () => {
+        console.log(`This is onSwap function consonle ${userAddress}---`);
+        const txParams = await getTxParams()
+
+        await tonConnectUI.sendTransaction({
+            validUntil: Date.now() + 1000000,
+            messages: [
+                {
+                    address: txParams.to.toString(),
+                    amount: txParams.value.toString(),
+                    payload: txParams.body?.toBoc().toString("base64")
+                }
+            ]
+        })
     };
 
     return (
@@ -250,7 +268,7 @@ const Swap: React.FC = () => {
                 <Button className="bg-gradient-to-r from-[#2d83ec] to-[#1ac9ff] text-white w-full rounded-full text-base py-4" onClick={onSwap}>
                     Swap
                 </Button>
-                
+
             </div>
         </div>
     );
